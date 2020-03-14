@@ -13,6 +13,7 @@ public class Grapple : MonoBehaviour
     private Rigidbody rb;
     public LineRenderer LR;
     public SpringJoint Rope;
+    public GameObject CameraVise;
 
     void Start()
     {
@@ -27,8 +28,11 @@ public class Grapple : MonoBehaviour
             //Debug.Log("Shooting");
             ShootHook();
         }
-        else
+        else if (Input.GetKey(KeyCode.M))
         {
+            CameraVise.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(false);
+
             Vector3 forward = hookStart.transform.TransformDirection(Vector3.forward) * 1000;
 
             Debug.DrawRay(hookStart.transform.position, forward, Color.green);
