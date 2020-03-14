@@ -2826,6 +2826,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 325766462291927864, guid: de9f7d52c786531438aaa6d13e691c50,
+        type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 325766462291927864, guid: de9f7d52c786531438aaa6d13e691c50,
+        type: 3}
+      propertyPath: JumpHeight
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 325766462291927864, guid: de9f7d52c786531438aaa6d13e691c50,
+        type: 3}
+      propertyPath: gravity
+      value: -29.43
+      objectReference: {fileID: 0}
     - target: {fileID: 325766463475620542, guid: de9f7d52c786531438aaa6d13e691c50,
         type: 3}
       propertyPath: m_Name
@@ -2895,6 +2910,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2298020417462000052, guid: a76c0dba2952b744a8fab5d9cf2646c3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040980318509704343, guid: a76c0dba2952b744a8fab5d9cf2646c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4091969486653818786, guid: a76c0dba2952b744a8fab5d9cf2646c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2948,6 +2973,11 @@ PrefabInstance:
     - target: {fileID: 4091969486653818786, guid: a76c0dba2952b744a8fab5d9cf2646c3,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097328644686407853, guid: a76c0dba2952b744a8fab5d9cf2646c3,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7140251343685502067, guid: a76c0dba2952b744a8fab5d9cf2646c3,
