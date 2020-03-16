@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class OldCameraController : MonoBehaviour
 {
     [Header("Settings")]
     public bool lockCursor;
     public float sensivity = 2f;
     public Transform target;
-    public PlayerMovement PlayerStat;
+    public PlayerInputMovement PlayerStat;
     public float distFromTarget = 11f;
     public Vector2 pitchMinMax = new Vector2(-40f, 85f);
 
@@ -63,8 +63,8 @@ public class CameraController : MonoBehaviour
         CollisionCheck((target.TransformPoint(playerOffset) - transform.forward * distanceFromOffset));
 
 
-        h += hinput.gamepad[PlayerStat.Player].rightStick.horizontal * sensivity;
-        v -= hinput.gamepad[PlayerStat.Player].rightStick.vertical * sensivity;
+        h += hinput.gamepad[PlayerStat.indexPlayer].rightStick.horizontal * sensivity;
+        v -= hinput.gamepad[PlayerStat.indexPlayer].rightStick.vertical * sensivity;
         v = Mathf.Clamp(v, pitchMinMax.x, pitchMinMax.y);
         currentRotation = Vector3.Lerp(currentRotation, new Vector3(v, h), rotationSmoothTime * Time.deltaTime);
 
@@ -82,11 +82,11 @@ public class CameraController : MonoBehaviour
     private void LateUpdate()
     {
 
-        if (hinput.gamepad[PlayerStat.Player].leftTrigger.justPressed)
+        if (hinput.gamepad[PlayerStat.indexPlayer].leftTrigger.justPressed)
         {
             transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
         }
-        if (hinput.gamepad[PlayerStat.Player].leftTrigger.pressed)
+        if (hinput.gamepad[PlayerStat.indexPlayer].leftTrigger.pressed)
         {
             ThirdPersonAiming();
             Transparency(0.2f);
@@ -102,15 +102,15 @@ public class CameraController : MonoBehaviour
 
             if (!vLock)
             {
-                h += hinput.gamepad[PlayerStat.Player].rightStick.horizontal * sensivity;
-                v -= hinput.gamepad[PlayerStat.Player].rightStick.vertical * sensivity;
+                h += hinput.gamepad[PlayerStat.indexPlayer].rightStick.horizontal * sensivity;
+                v -= hinput.gamepad[PlayerStat.indexPlayer].rightStick.vertical * sensivity;
                 v = Mathf.Clamp(v, pitchMinMax.x, pitchMinMax.y);
                 currentRotation = Vector3.Lerp(currentRotation, new Vector3(v, h), rotationSmoothTime * Time.deltaTime);
             }
             else
             {
 
-                h += hinput.gamepad[PlayerStat.Player].rightStick.horizontal * sensivity;
+                h += hinput.gamepad[PlayerStat.indexPlayer].rightStick.horizontal * sensivity;
                 v = pitchMinMax.y;
 
                 currentRotation = Vector3.Lerp(currentRotation, new Vector3(v, h), rotationSmoothTime * Time.deltaTime);

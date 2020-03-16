@@ -7,7 +7,7 @@ public class CameraV1 : MonoBehaviour
     //public GameObject player;
     //public float rotateAngle = 90f;
 
-    public PlayerMovement PlayerStat;
+    public PlayerInputMovement PlayerStat;
 
     public Transform target;
 
@@ -45,6 +45,7 @@ public class CameraV1 : MonoBehaviour
     }
     void LateUpdate()
     {
+        /*
         if (PlayerStat.nbreGamepadConnected == 2)
         {
             ControlCamera2Gamepads();
@@ -56,12 +57,12 @@ public class CameraV1 : MonoBehaviour
         else if (PlayerStat.nbreGamepadConnected == 0)
         {
             ControlCameraKeyboard();
-        }
+        }*/
     }
 
     private void ControlCameraKeyboard()
     {
-        if (PlayerStat.Player == 0)
+        if (PlayerStat.indexPlayer == 0)
         {
             horizontal = Input.GetAxis("Mouse X Player 1") * rotateSpeed * 5f;
             target.Rotate(0f, horizontal, 0f);
@@ -70,7 +71,7 @@ public class CameraV1 : MonoBehaviour
             pivot.Rotate(-vertical, 0f, 0f);
         }
 
-        if (PlayerStat.Player == 1)
+        if (PlayerStat.indexPlayer == 1)
         {
             horizontal = Input.GetAxis("Mouse X Player 2") * rotateSpeed;
             target.Rotate(0f, horizontal, 0f);
@@ -99,15 +100,15 @@ public class CameraV1 : MonoBehaviour
 
     private void ControlCameraGamepadKeyboard()
     {
-        if (PlayerStat.Player == 0)
+        if (PlayerStat.indexPlayer == 0)
         {
-            horizontal = hinput.gamepad[PlayerStat.Player].rightStick.horizontal * rotateSpeed;
+            horizontal = hinput.gamepad[PlayerStat.indexPlayer].rightStick.horizontal * rotateSpeed;
             target.Rotate(0f, horizontal, 0f);
 
-            vertical = hinput.gamepad[PlayerStat.Player].rightStick.vertical * rotateSpeed;
+            vertical = hinput.gamepad[PlayerStat.indexPlayer].rightStick.vertical * rotateSpeed;
             pivot.Rotate(-vertical, 0f, 0f);
         }
-        else if (PlayerStat.Player == 1)
+        else if (PlayerStat.indexPlayer == 1)
         {
             horizontal = Input.GetAxis("Mouse X Player 2") * rotateSpeed;
             target.Rotate(0f, horizontal, 0f);
@@ -136,10 +137,10 @@ public class CameraV1 : MonoBehaviour
 
     private void ControlCamera2Gamepads()
     {
-        horizontal = hinput.gamepad[PlayerStat.Player].rightStick.horizontal * rotateSpeed;
+        horizontal = hinput.gamepad[PlayerStat.indexPlayer].rightStick.horizontal * rotateSpeed;
         target.Rotate(0f, horizontal, 0f);
 
-        vertical = hinput.gamepad[PlayerStat.Player].rightStick.vertical * rotateSpeed;
+        vertical = hinput.gamepad[PlayerStat.indexPlayer].rightStick.vertical * rotateSpeed;
         pivot.Rotate(-vertical, 0f, 0f);
 
         desiredYAngle = target.eulerAngles.y;

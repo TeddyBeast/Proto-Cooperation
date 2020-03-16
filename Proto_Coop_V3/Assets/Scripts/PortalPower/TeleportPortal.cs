@@ -4,21 +4,22 @@ using UnityEngine;
 
 public class TeleportPortal : MonoBehaviour
 {
-    [SerializeField] private PortalPower portals;
+    public ListPortalsPlaced ListPortals;
+
     [SerializeField] private float distanceSpawnPortal = 2f;
 
     private void Start()
     {
-        portals = FindObjectOfType(typeof(PortalPower)) as PortalPower;
+        ListPortals = FindObjectOfType(typeof(ListPortalsPlaced)) as ListPortalsPlaced;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (portals.listPortal.Count > 1)
+        if (ListPortals.PortalsPlaced.Count > 1)
         {
             if (collision.gameObject.tag == "PortalA")
             {
-                foreach (GameObject portal in portals.listPortal)
+                foreach (GameObject portal in ListPortals.PortalsPlaced)
                 {
                     if (portal.tag == "PortalB")
                     {
@@ -30,7 +31,7 @@ public class TeleportPortal : MonoBehaviour
 
             if (collision.gameObject.tag == "PortalB")
             {
-                foreach (GameObject portal in portals.listPortal)
+                foreach (GameObject portal in ListPortals.PortalsPlaced)
                 {
                     if (portal.tag == "PortalA")
                     {

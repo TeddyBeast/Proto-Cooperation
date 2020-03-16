@@ -13,10 +13,10 @@ public class PlayerInputMovement : MonoBehaviour
 
     Rigidbody rb;
 
-    float moveFront;
-    float moveBack;
-    float moveLeft;
-    float moveRight;
+    Vector3 InitScale;
+    Vector3 velocity;
+
+    public int indexPlayer = 0;
 
     public float speed = 7f;
     public float groundDistance = 1f;
@@ -25,13 +25,13 @@ public class PlayerInputMovement : MonoBehaviour
 
     public bool isGrounded;
 
-    Vector3 InitScale;
-
-    Vector3 velocity;
+    float moveHorizontal;
+    float moveVertical;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        groundCheck = GetComponent<Transform>();
         velocity = rb.velocity;
 
         InitScale = transform.localScale;
@@ -41,31 +41,85 @@ public class PlayerInputMovement : MonoBehaviour
     {
         controls = new PlayerControls();
 
-        controls.Player1.Front.performed += ctx => moveFront = ctx.ReadValue<float>();
-        controls.Player1.Front.canceled += ctx => moveFront = 0f;
+        InputSystem.onDeviceChange += InputSystem_onDeviceChange;
 
-        controls.Player1.Back.performed += ctx => moveBack = ctx.ReadValue<float>();
-        controls.Player1.Back.canceled += ctx => moveBack = 0f;
+        if (indexPlayer == 0)
+        {
+            controls.Player1.MovementHorizontal.performed += ctx => moveHorizontal = ctx.ReadValue<float>();
+            controls.Player1.MovementHorizontal.canceled += ctx => moveHorizontal = 0f;
 
-        controls.Player1.Right.performed += ctx => moveRight = ctx.ReadValue<float>();
-        controls.Player1.Right.canceled += ctx => moveRight = 0f;
+            controls.Player1.MovementVertical.performed += ctx => moveVertical = ctx.ReadValue<float>();
+            controls.Player1.MovementVertical.canceled += ctx => moveVertical = 0f;
 
-        controls.Player1.Left.performed += ctx => moveLeft = ctx.ReadValue<float>();
-        controls.Player1.Left.canceled += ctx => moveLeft = 0f;
+            controls.Player1.Jump.performed += ctx => Jump();
 
-        controls.Player1.Jump.performed += ctx => Jump();
+            controls.Player1.Crouch.performed += ctx => Crouch();
+            controls.Player1.Crouch.canceled += ctx => UnCrouch();
+        }
+        else if (indexPlayer == 1)
+        {
+            controls.Player2.MovementHorizontal.performed += ctx => moveHorizontal = ctx.ReadValue<float>();
+            controls.Player2.MovementHorizontal.canceled += ctx => moveHorizontal = 0f;
 
-        controls.Player1.Crouch.performed += ctx => Crouch();
-        controls.Player1.Crouch.canceled += ctx => UnCrouch();
+            controls.Player2.MovementVertical.performed += ctx => moveVertical = ctx.ReadValue<float>();
+            controls.Player2.MovementVertical.canceled += ctx => moveVertical = 0f;
+
+            controls.Player2.Jump.performed += ctx => Jump();
+
+            controls.Player2.Crouch.performed += ctx => Crouch();
+            controls.Player2.Crouch.canceled += ctx => UnCrouch();
+        }
+
+        // Override devices array to have good device connected to the player
+        controls.devices = GetAvailableDevices();
     }
+
+    #region MANAGE GAMEPADS
+    // Provide Keyboard and Gamepad if available
+    private InputDevice[] GetAvailableDevices()
+    {
+        Gamepad pad = GetGamePadAvailable();
+        InputDevice[] devicesAvailable = null;
+        if (pad == null)
+        {
+            devicesAvailable = new InputDevice[1];
+            devicesAvailable[0] = Keyboard.current;
+        }
+        else
+        {
+            devicesAvailable = new InputDevice[2];
+            devicesAvailable[0] = Keyboard.current;
+            devicesAvailable[1] = pad;
+        }
+        return devicesAvailable;
+    }
+
+    // Provide an available GamePad if available according to index player
+    private Gamepad GetGamePadAvailable()
+    {
+        // Parse and retrieve Game Pad if available
+        int indexPad = 0;
+        // According to the index player
+        foreach (Gamepad gamePad in Gamepad.all)
+        {
+            if (indexPad == indexPlayer)
+            {
+                return gamePad;
+            }
+            indexPad++;
+        }
+        return null;
+    }
+
+    // Detect if a device is plugged/unplugged and reset playercontrols.devicess
+    private void InputSystem_onDeviceChange(InputDevice arg1, InputDeviceChange arg2)
+    {
+        controls.devices = GetAvailableDevices();
+    }
+    #endregion MANAGE GAMEPADS
 
     private void FixedUpdate()
     {
-        float f = moveFront;
-        float b = moveBack;
-        float r = moveRight;
-        float l = moveLeft;
-
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -73,7 +127,7 @@ public class PlayerInputMovement : MonoBehaviour
             velocity.y = -2f;
         }
 
-        Vector3 desiredMove = (transform.forward * f) + (-transform.forward * b) + (transform.right * r) + (-transform.right * l);
+        Vector3 desiredMove = (transform.forward * moveVertical) + (transform.right * moveHorizontal);
         desiredMove = Vector3.ClampMagnitude(desiredMove, 1f);
 
         Vector3 targetPos = transform.position + desiredMove * speed * Time.deltaTime;
@@ -99,7 +153,7 @@ public class PlayerInputMovement : MonoBehaviour
     {
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 2, transform.localScale.z);
     }
-    
+
     private void UnCrouch()
     {
         transform.localScale = InitScale;
@@ -109,10 +163,12 @@ public class PlayerInputMovement : MonoBehaviour
     private void OnEnable()
     {
         controls.Player1.Enable();
+        controls.Player2.Enable();
     }
 
     private void OnDisable()
     {
         controls.Player1.Disable();
+        controls.Player2.Disable();
     }
 }
