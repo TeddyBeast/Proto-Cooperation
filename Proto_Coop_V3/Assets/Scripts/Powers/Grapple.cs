@@ -33,6 +33,8 @@ public class Grapple : MonoBehaviour
     {
         controls = new PlayerControls();
 
+        InputSystem.onDeviceChange += InputSystem_onDeviceChange;
+
         if (PlayerStat.indexPlayer == 0)
         {
             controls.Player1.ThrowBreakGrapple.performed += ctx => ThrowGrapple = true;
@@ -43,6 +45,9 @@ public class Grapple : MonoBehaviour
             controls.Player2.ThrowBreakGrapple.performed += ctx => ThrowGrapple = true;
             controls.Player2.ThrowBreakGrapple.canceled += ctx => ThrowGrapple = false;
         }
+
+        // Override devices array to have good device connected to the player
+        controls.devices = GetAvailableDevices();
     }
 
     #region MANAGE GAMEPADS
