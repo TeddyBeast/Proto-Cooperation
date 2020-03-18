@@ -5,9 +5,9 @@ using UnityEngine;
 public class Clone : MonoBehaviour
 {
     public Rigidbody rb;
-    public GameObject cloneGO;
-    public Vector3 playerVelocity;
-    private GameObject clone;
+    //public GameObject cloneGO;
+    //public Vector3 playerVelocity;
+    //private GameObject clone;
     public bool cloned = false;
     public Material Shadow;
     public Material OldMaterial;
@@ -37,6 +37,7 @@ public class Clone : MonoBehaviour
             //clone.GetComponent<BoxCollider>().enabled = false;
             //StartCoroutine(RebuildCollision());
             cloned = true;
+            gameObject.layer = 12;
         }
         if (Input.GetKeyDown(KeyCode.L) & cloned)
         {
@@ -44,6 +45,7 @@ public class Clone : MonoBehaviour
             //Destroy(clone);
             GetComponent<MeshRenderer>().material = OldMaterial;
             cloned = false;
+            gameObject.layer = 0;
         }
     }
 
