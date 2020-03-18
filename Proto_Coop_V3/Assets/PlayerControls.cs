@@ -736,7 +736,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""33e6e6ba-0341-4f55-a6fd-2040aa546fe3"",
-                    ""path"": ""<Mouse>/radius/y"",
+                    ""path"": ""<Mouse>/position/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -747,7 +747,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""8ff89fcd-8289-497a-a88c-0df0090036e2"",
-                    ""path"": ""<Mouse>/radius/y"",
+                    ""path"": ""<Mouse>/position/y"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -802,7 +802,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""18d5af78-eca9-4305-94d3-9f3d3a9ae17f"",
-                    ""path"": ""<Mouse>/radius/x"",
+                    ""path"": ""<Mouse>/position/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -813,7 +813,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""556f326b-d2a2-40a4-bb69-ea414e3b3c63"",
-                    ""path"": ""<Mouse>/radius/x"",
+                    ""path"": ""<Mouse>/position/x"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
