@@ -54,9 +54,9 @@ Camera:
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -272,6 +272,8 @@ GameObject:
   - component: {fileID: 4883957076080549859}
   - component: {fileID: 7877555917832584559}
   - component: {fileID: 8763007902896539208}
+  - component: {fileID: 3679523039144095595}
+  - component: {fileID: 5258893598860613525}
   - component: {fileID: 5647908211053689793}
   m_Layer: 0
   m_Name: ModelPlayer2
@@ -384,13 +386,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90ff874b43d44c4ebde0a42820f9274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typePlayer: 1
-  nbreGamepadConnected: 0
-  indexPlayer: 1
   groundCheck: {fileID: 325766462291927871}
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
+  indexPlayer: 1
   speed: 9
   groundDistance: 1
   JumpHeight: 5
@@ -433,8 +433,6 @@ MonoBehaviour:
     type: 3}
   distWall: 2
   ListPortals: {fileID: 0}
-  inputPlacePortalPressed: 0
-  inputSwitchPortalPressed: 0
 --- !u!114 &8763007902896539208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,6 +447,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListPortals: {fileID: 0}
   distanceSpawnPortal: 2
+--- !u!114 &3679523039144095595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325766462291927870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a8b79e3a392b754dacc9783a4527472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerStat: {fileID: 2984133326876786258}
+  rb: {fileID: 325766462291927865}
+  cloned: 0
+  Shadow: {fileID: 2100000, guid: aa29f6d25e973564a9613d898951e857, type: 2}
+  OldMaterial: {fileID: 2100000, guid: 8c7b60835477f8b4783d2c49e67cfa8b, type: 2}
+--- !u!114 &5258893598860613525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325766462291927870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 563412e47a437e440a2b8fb516918e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hookStart: {fileID: 325766462291927870}
+  hookEnd: {fileID: 1389200192910480327, guid: 72c89dbd134e9eb489aa299e24364fdf, type: 3}
+  targeted: 0
+  LR: {fileID: 880461921787547886, guid: dccd7eea770327a41bba5ebe1481d3cf, type: 3}
+  Rope: {fileID: 0}
+  CamValues: {fileID: 5399686653144414866}
+  CamTransform: {fileID: 325766462124651501}
+  PlayerStat: {fileID: 2984133326876786258}
+  Crosshair: {fileID: 9073270362064858108}
 --- !u!114 &5647908211053689793
 MonoBehaviour:
   m_ObjectHideFlags: 0

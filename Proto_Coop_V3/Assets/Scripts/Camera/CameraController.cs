@@ -48,6 +48,8 @@ public class CameraController : MonoBehaviour
 
     private bool vLock = false;
 
+    InputDevice[] devicesAvailable = null;
+
     public bool aimPressed = false;
     public bool aimHold = false;
     public bool aimRelease = true;
@@ -93,6 +95,7 @@ public class CameraController : MonoBehaviour
             controls.Player2.Aim.started += ctx => aimPressed = true;
             controls.Player2.Aim.performed += ctx => aimHold = true;
             controls.Player2.Aim.canceled += ctx => aimRelease = true;
+
         }
 
         // Override devices array to have good device connected to the player
@@ -104,7 +107,7 @@ public class CameraController : MonoBehaviour
     private InputDevice[] GetAvailableDevices()
     {
         Gamepad pad = GetGamePadAvailable();
-        InputDevice[] devicesAvailable = null;
+        
         if (pad == null)
         {
             devicesAvailable = new InputDevice[1];
@@ -173,6 +176,25 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (PlayerStat.indexPlayer == 1 && devicesAvailable.Length < 2)
+        {
+            if (Mouse.current.rightButton.wasPressedThisFrame)
+            {
+                aimPressed = true;
+                aimHold = true;
+                aimRelease = false;
+            }
+            else if (Mouse.current.rightButton.wasReleasedThisFrame)
+            {
+                aimPressed = false;
+                aimHold = false;
+                aimRelease = true;
+            }
+
+            moveH = Input.GetAxis("Mouse X");
+            moveV = Input.GetAxis("Mouse Y");
+        }
+        
 
         if (aimPressed == true)
         {
@@ -189,7 +211,7 @@ public class CameraController : MonoBehaviour
         {
             aimHold = false;
             aimPressed = false;
-            
+
             rotator.eulerAngles = new Vector3(0, rotator.eulerAngles.y, rotator.eulerAngles.z);
 
             CollisionCheck(target.position - transform.forward * distFromTarget);
