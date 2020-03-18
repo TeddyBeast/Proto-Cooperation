@@ -1,19 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Grapple : MonoBehaviour
 {
     public GameObject hookStart;
 
     public GameObject hookEnd;
-    public Camera cameraMire;
+    //public Camera cameraMire;
     public bool targeted = false;
     private GameObject HookEndGO;
     private Rigidbody rb;
     public LineRenderer LR;
     public SpringJoint Rope;
-    public GameObject CameraVise;
+
+    [SerializeField] CameraController CamValues;
+    [SerializeField] Transform CamTransform;
+
+    [SerializeField] private PlayerInputMovement PlayerSettings;
+
+    [SerializeField] private Image Crosshair;
+    //public GameObject CameraVise;
 
     void Start()
     {
@@ -30,18 +39,20 @@ public class Grapple : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.M))
         {
-            CameraVise.SetActive(true);
-            transform.GetChild(0).gameObject.SetActive(false);
+            CamValues.aimHold = true;
+            //CameraVise.SetActive(true);
+            //transform.GetChild(0).gameObject.SetActive(false);
 
-            Vector3 forward = hookStart.transform.TransformDirection(Vector3.forward) * 1000;
+            Vector3 forward = CamTransform.transform.TransformDirection(Vector3.forward) * 1000;
 
-            Debug.DrawRay(hookStart.transform.position, forward, Color.green);
+            Debug.DrawRay(CamTransform.transform.position, forward, Color.green);
 
             RaycastHit hit;
-            if (Physics.Raycast(hookStart.transform.position, forward, out hit) && (hit.transform.tag == "Grap"))
+            if (Physics.Raycast(CamTransform.transform.position, forward, out hit) && (hit.transform.tag == "Grap"))
             {
                 if (!targeted)
                 {
+                    Debug.Log("target");
                     HookEndGO = Instantiate(hookEnd, hit.point, Quaternion.identity);
                     targeted = true;
                 }
@@ -66,6 +77,26 @@ public class Grapple : MonoBehaviour
             LR.positionCount = 0;
             Rope = null;
             Destroy(GetComponent<SpringJoint>());
+        }
+
+        Ray ray = new Ray(CamTransform.transform.position, CamTransform.transform.forward);
+
+        if (CamValues.aimHold == true)
+        {
+            Crosshair.enabled = enabled;
+
+            if (Physics.Raycast(ray, out RaycastHit hit, 1000))
+            {
+                Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
+
+               
+            }
+        }
+
+        if (CamValues.aimRelease == true)
+        {
+            PlayerSettings.enabled = enabled;
+            Crosshair.enabled = false;
         }
     }
 
