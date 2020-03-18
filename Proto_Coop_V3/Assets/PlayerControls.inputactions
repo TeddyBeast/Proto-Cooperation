@@ -76,6 +76,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Clone",
+                    "type": "Button",
+                    "id": "d5a8c1ba-8c59-4574-9ed9-e659971710ae",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Throw/Break Grapple",
+                    "type": "Button",
+                    "id": "18cb8619-8dc8-437a-94e5-4074a15cea70",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -452,6 +468,50 @@
                     "action": "SwitchPortal",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8cea9037-7658-46f2-abc9-97d354a16fa2",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ddedcbb9-9d95-49d9-b908-732311636239",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e1dec73d-4dca-4201-9549-bf1bf4f7e924",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Throw/Break Grapple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1fc79a6-57dd-4ff5-90e3-5a4fec8e2271",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Throw/Break Grapple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -527,6 +587,22 @@
                     "name": "SwitchPortal",
                     "type": "Button",
                     "id": "aa0a388b-748f-47d7-a523-98a3a9d56e4d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Clone",
+                    "type": "Button",
+                    "id": "d3228a91-ffe4-4993-81be-3a4d6976d243",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Throw/Break Grapple",
+                    "type": "Button",
+                    "id": "c081ad7f-a069-4737-b332-2fbf2c2b9bfb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -904,6 +980,50 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "SwitchPortal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "036401e9-7b13-4051-9c28-3f00abffcca7",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ade58b4-061e-4d15-b875-46c61aebb4c7",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "446976d0-3cd0-4e47-87b6-3b7b36fd3227",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Throw/Break Grapple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7bcf1ab3-0f92-4f75-94ac-57d6966c6ca4",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Throw/Break Grapple",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

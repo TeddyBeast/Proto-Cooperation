@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Clone : MonoBehaviour
 {
+    PlayerControls controls;
+    public PlayerInputMovement PlayerStat;
+
     public Rigidbody rb;
     //public GameObject cloneGO;
     //public Vector3 playerVelocity;
@@ -12,20 +16,81 @@ public class Clone : MonoBehaviour
     public Material Shadow;
     public Material OldMaterial;
 
-    // Start is called before the first frame update
+    bool clonePressed = false;
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+
+        if (PlayerStat.indexPlayer == 0)
+        {
+            controls.Player1.Clone.started += ctx => clonePressed = true;
+            controls.Player1.Clone.canceled += ctx => clonePressed = false;
+        }
+        else if (PlayerStat.indexPlayer == 1)
+        {
+            controls.Player2.Clone.started += ctx => clonePressed = true;
+            controls.Player2.Clone.canceled += ctx => clonePressed = false;
+        }
+    }
+
+    #region MANAGE GAMEPADS
+    // Provide Keyboard and Gamepad if available
+    private InputDevice[] GetAvailableDevices()
+    {
+        Gamepad pad = GetGamePadAvailable();
+        InputDevice[] devicesAvailable = null;
+        if (pad == null)
+        {
+            devicesAvailable = new InputDevice[1];
+            devicesAvailable[0] = Keyboard.current;
+        }
+        else
+        {
+            devicesAvailable = new InputDevice[2];
+            devicesAvailable[0] = Keyboard.current;
+            devicesAvailable[1] = pad;
+        }
+        return devicesAvailable;
+    }
+
+    // Provide an available GamePad if available according to index player
+    private Gamepad GetGamePadAvailable()
+    {
+        // Parse and retrieve Game Pad if available
+        int indexPad = 0;
+        // According to the index player
+        foreach (Gamepad gamePad in Gamepad.all)
+        {
+            if (indexPad == PlayerStat.indexPlayer)
+            {
+                return gamePad;
+            }
+            indexPad++;
+        }
+        return null;
+    }
+
+    // Detect if a device is plugged/unplugged and reset playercontrols.devicess
+    private void InputSystem_onDeviceChange(InputDevice arg1, InputDeviceChange arg2)
+    {
+        controls.devices = GetAvailableDevices();
+    }
+    #endregion MANAGE GAMEPADS
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        clonePressed = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //if (Input.GetKeyDown(KeyCode.P) & cloned)
         //{
         //    Destroy(clone);
         //}
-        if (Input.GetKeyDown(KeyCode.P) & !cloned)
+        if (clonePressed == true & !cloned)
         {
             //clone = Instantiate(cloneGO, transform.position, transform.rotation);
 
@@ -39,7 +104,7 @@ public class Clone : MonoBehaviour
             cloned = true;
             gameObject.layer = 12;
         }
-        if (Input.GetKeyDown(KeyCode.L) & cloned)
+        if (clonePressed == false & cloned)
         {
             //transform.position = clone.transform.position;
             //Destroy(clone);
@@ -53,7 +118,7 @@ public class Clone : MonoBehaviour
     //{
     //    if (cloned & col.gameObject.layer == 11)
     //    {
-            
+
     //    }
     //}
 
@@ -66,4 +131,16 @@ public class Clone : MonoBehaviour
     //        clone.GetComponent<BoxCollider>().enabled = true;
     //    }
     //}
+
+    private void OnEnable()
+    {
+        controls.Player1.Enable();
+        controls.Player2.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player1.Disable();
+        controls.Player2.Disable();
+    }
 }

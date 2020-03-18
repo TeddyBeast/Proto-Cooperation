@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Grapple : MonoBehaviour
 {
+    PlayerControls controls;
+
     public GameObject hookStart;
 
     public GameObject hookEnd;
@@ -19,27 +22,89 @@ public class Grapple : MonoBehaviour
     [SerializeField] CameraController CamValues;
     [SerializeField] Transform CamTransform;
 
-    [SerializeField] private PlayerInputMovement PlayerSettings;
+    [SerializeField] private PlayerInputMovement PlayerStat;
 
     [SerializeField] private Image Crosshair;
     //public GameObject CameraVise;
 
+    bool ThrowGrapple = false;
+
+    private void Awake()
+    {
+        controls = new PlayerControls();
+
+        if (PlayerStat.indexPlayer == 0)
+        {
+            controls.Player1.ThrowBreakGrapple.performed += ctx => ThrowGrapple = true;
+            controls.Player1.ThrowBreakGrapple.canceled += ctx => ThrowGrapple = false;
+        }
+        else if (PlayerStat.indexPlayer == 1)
+        {
+            controls.Player2.ThrowBreakGrapple.performed += ctx => ThrowGrapple = true;
+            controls.Player2.ThrowBreakGrapple.canceled += ctx => ThrowGrapple = false;
+        }
+    }
+
+    #region MANAGE GAMEPADS
+    // Provide Keyboard and Gamepad if available
+    private InputDevice[] GetAvailableDevices()
+    {
+        Gamepad pad = GetGamePadAvailable();
+        InputDevice[] devicesAvailable = null;
+        if (pad == null)
+        {
+            devicesAvailable = new InputDevice[1];
+            devicesAvailable[0] = Keyboard.current;
+        }
+        else
+        {
+            devicesAvailable = new InputDevice[2];
+            devicesAvailable[0] = Keyboard.current;
+            devicesAvailable[1] = pad;
+        }
+        return devicesAvailable;
+    }
+
+    // Provide an available GamePad if available according to index player
+    private Gamepad GetGamePadAvailable()
+    {
+        // Parse and retrieve Game Pad if available
+        int indexPad = 0;
+        // According to the index player
+        foreach (Gamepad gamePad in Gamepad.all)
+        {
+            if (indexPad == PlayerStat.indexPlayer)
+            {
+                return gamePad;
+            }
+            indexPad++;
+        }
+        return null;
+    }
+
+    // Detect if a device is plugged/unplugged and reset playercontrols.devicess
+    private void InputSystem_onDeviceChange(InputDevice arg1, InputDeviceChange arg2)
+    {
+        controls.devices = GetAvailableDevices();
+    }
+    #endregion MANAGE GAMEPADS
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        ThrowGrapple = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetButton("Fire1") & targeted)
+        if (ThrowGrapple == true & targeted)
         {
             //Debug.Log("Shooting");
             ShootHook();
         }
-        else if (Input.GetKey(KeyCode.M))
+        else if (CamValues.aimHold == true)
         {
-            CamValues.aimHold = true;
             //CameraVise.SetActive(true);
             //transform.GetChild(0).gameObject.SetActive(false);
 
@@ -69,7 +134,7 @@ public class Grapple : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Fire2") & targeted)
+        if (ThrowGrapple == false & targeted)
         {
             targeted = false;
             Destroy(HookEndGO);
@@ -95,7 +160,7 @@ public class Grapple : MonoBehaviour
 
         if (CamValues.aimRelease == true)
         {
-            PlayerSettings.enabled = enabled;
+            PlayerStat.enabled = enabled;
             Crosshair.enabled = false;
         }
     }
@@ -117,5 +182,16 @@ public class Grapple : MonoBehaviour
         Rope.damper = 2f;
         //GameObject.DestroyImmediate(Rope);
         //Rope = newRope;
+    }
+
+    private void OnEnable()
+    {
+        controls.Player1.Enable();
+        controls.Player2.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Player1.Disable();
+        controls.Player2.Disable();
     }
 }
