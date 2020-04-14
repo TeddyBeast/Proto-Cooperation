@@ -34,6 +34,7 @@ public class Telekinesie : MonoBehaviour
         PlayerSettings = GetComponent<PlayerInputMovement>();
     }
 
+    
     private void Awake()
     {
         controls = new PlayerControls();
@@ -105,7 +106,6 @@ public class Telekinesie : MonoBehaviour
         controls.devices = GetAvailableDevices();
     }
     #endregion MANAGE GAMEPADS
-
     private void Update()
     {
         Ray ray = new Ray(CamTransform.transform.position, CamTransform.transform.forward);
