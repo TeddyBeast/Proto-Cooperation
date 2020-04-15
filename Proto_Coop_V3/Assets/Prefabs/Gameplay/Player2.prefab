@@ -97,7 +97,7 @@ MonoBehaviour:
   distFromTarget: 11
   pitchMinMax: {x: -40, y: 85}
   rotationSmoothTime: 10
-  playerOffset: {x: 0, y: 0, z: 0}
+  playerOffset: {x: 1.5, y: 1, z: -0.5}
   distanceFromOffset: 2
   rotator: {fileID: 325766463475620543}
   changeTransparency: 1
