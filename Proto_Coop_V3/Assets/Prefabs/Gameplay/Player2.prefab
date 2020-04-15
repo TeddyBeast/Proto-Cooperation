@@ -93,7 +93,7 @@ MonoBehaviour:
   lockCursor: 0
   sensivity: 2
   target: {fileID: 325766462291927871}
-  PlayerStat: {fileID: 2984133326876786258}
+  PlayerStat: {fileID: 0}
   distFromTarget: 11
   pitchMinMax: {x: -40, y: 85}
   rotationSmoothTime: 10

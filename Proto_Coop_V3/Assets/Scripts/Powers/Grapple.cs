@@ -50,6 +50,7 @@ public class Grapple : MonoBehaviour
         controls.devices = GetAvailableDevices();
     }
 
+
     #region MANAGE GAMEPADS
     // Provide Keyboard and Gamepad if available
     private InputDevice[] GetAvailableDevices()
@@ -98,6 +99,7 @@ public class Grapple : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         ThrowGrapple = false;
+        LR = GetComponent<LineRenderer>();
     }
 
     // Update is called once per frame
@@ -108,7 +110,7 @@ public class Grapple : MonoBehaviour
             //Debug.Log("Shooting");
             ShootHook();
         }
-        else if (CamValues.aimHold == true)
+        if (CamValues.aimHold == true)
         {
             //CameraVise.SetActive(true);
             //transform.GetChild(0).gameObject.SetActive(false);
@@ -122,7 +124,7 @@ public class Grapple : MonoBehaviour
             {
                 if (!targeted)
                 {
-                    Debug.Log("target");
+                    //Debug.Log("target");
                     HookEndGO = Instantiate(hookEnd, hit.point, Quaternion.identity);
                     targeted = true;
                 }
@@ -139,15 +141,15 @@ public class Grapple : MonoBehaviour
             }
         }
 
-        if (ThrowGrapple == false & targeted)
-        {
-            targeted = false;
-            Destroy(HookEndGO);
-            //LR.enabled = false;
-            LR.positionCount = 0;
-            Rope = null;
-            Destroy(GetComponent<SpringJoint>());
-        }
+        //if (!targeted)
+        //{
+        //    targeted = false;
+        //    Destroy(HookEndGO);
+        //    //LR.enabled = false;
+        //    LR.positionCount = 0;
+        //    Rope = null;
+        //    Destroy(GetComponent<SpringJoint>());
+        //}
 
         Ray ray = new Ray(CamTransform.transform.position, CamTransform.transform.forward);
 
@@ -170,23 +172,41 @@ public class Grapple : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        if (targeted)
+        {
+            DrawRope();
+        }
+    }
+
     public void ShootHook()
     {
-        Destroy(Rope);
-        transform.position = Vector3.MoveTowards(transform.position, HookEndGO.transform.position, 1);
+        //Destroy(Rope);
         //LR.enabled = true;
-        LR.positionCount = 2;
-        LR.SetPosition(0, transform.position);
-        LR.SetPosition(1, HookEndGO.transform.position);
+        //LR.positionCount = 2;
 
-        Rope = gameObject.AddComponent<SpringJoint>();
+        if (GetComponent<SpringJoint>() == null)
+        {
+            Rope = gameObject.AddComponent<SpringJoint>();
+        }
+        float distanceRope = Vector3.Distance(gameObject.transform.position, HookEndGO.transform.position);
+        Rope.maxDistance = distanceRope * 0.8f;
+        Rope.minDistance = distanceRope * 0.25f;
         //newRope.enableCollision = false;
         Rope.autoConfigureConnectedAnchor = false;
         Rope.connectedAnchor = HookEndGO.transform.position;
-        Rope.spring = 6.5f;
+        Rope.spring = 10f;
         Rope.damper = 2f;
+        Rope.massScale = 10f;
         //GameObject.DestroyImmediate(Rope);
         //Rope = newRope;
+    }
+
+    public void DrawRope()
+    {
+        LR.SetPosition(0, transform.position);
+        LR.SetPosition(1, HookEndGO.transform.position);
     }
 
     private void OnEnable()
