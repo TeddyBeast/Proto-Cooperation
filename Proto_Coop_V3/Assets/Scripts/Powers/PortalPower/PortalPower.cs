@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Networking;
 
 public class PortalPower : MonoBehaviour
 {
@@ -110,6 +111,7 @@ public class PortalPower : MonoBehaviour
                     if (ListPortals.PortalsPlaced.Count == 0)
                     {
                         ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, transform.rotation = hit.transform.rotation));
+                        NetworkServer.Spawn(ListPortals.PortalsPlaced[0]);
                     }
 
                     if (ListPortals.PortalsPlaced.Count > 0)
@@ -127,6 +129,7 @@ public class PortalPower : MonoBehaviour
                         if (NbreSamePortal == 0)
                         {
                             ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, transform.rotation = hit.transform.rotation));
+                            NetworkServer.Spawn(ListPortals.PortalsPlaced[1]);
                             NbreSamePortal = 0;
                         }
                         NbreSamePortal = 0;
