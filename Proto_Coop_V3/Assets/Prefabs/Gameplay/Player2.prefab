@@ -94,6 +94,7 @@ MonoBehaviour:
   sensivity: 2
   target: {fileID: 325766463475620543}
   PlayerStat: {fileID: 7890635864281456449}
+  99e1fcd0c9e4368d1ac97ef95f8d1f15c0b378af
   distFromTarget: 11
   pitchMinMax: {x: -40, y: 85}
   rotationSmoothTime: 10

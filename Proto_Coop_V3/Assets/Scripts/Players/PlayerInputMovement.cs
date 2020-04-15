@@ -39,6 +39,8 @@ public class PlayerInputMovement : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
         controls = new PlayerControls();
 
         InputSystem.onDeviceChange += InputSystem_onDeviceChange;
@@ -124,7 +126,7 @@ public class PlayerInputMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            //velocity.y = -2f;
         }
 
         Vector3 desiredMove = (transform.forward * moveVertical) + (transform.right * moveHorizontal);
@@ -134,9 +136,9 @@ public class PlayerInputMovement : MonoBehaviour
 
         rb.MovePosition(targetPos);
 
-        velocity.y += gravity;
+        //velocity.y += gravity * Time.deltaTime;
 
-        rb.velocity = velocity;
+        //rb.velocity = velocity;
     }
 
     private void Jump()
@@ -144,7 +146,8 @@ public class PlayerInputMovement : MonoBehaviour
         if (isGrounded)
         {
             print("Press jump");
-            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
+            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
+            velocity.y = JumpHeight;
             rb.velocity = velocity;
         }
     }
