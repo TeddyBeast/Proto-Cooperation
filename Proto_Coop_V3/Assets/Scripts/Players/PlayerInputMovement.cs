@@ -130,11 +130,11 @@ public class PlayerInputMovement : MonoBehaviour
         Vector3 desiredMove = (transform.forward * moveVertical) + (transform.right * moveHorizontal);
         desiredMove = Vector3.ClampMagnitude(desiredMove, 1f);
 
-        Vector3 targetPos = transform.position + desiredMove * speed * Time.deltaTime;
+        Vector3 targetPos = transform.position + desiredMove * speed;
 
         rb.MovePosition(targetPos);
 
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity;
 
         rb.velocity = velocity;
     }
