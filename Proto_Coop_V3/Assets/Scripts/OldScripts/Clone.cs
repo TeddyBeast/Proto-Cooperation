@@ -23,7 +23,7 @@ public class Clone : MonoBehaviour
         controls = new PlayerControls();
 
         InputSystem.onDeviceChange += InputSystem_onDeviceChange;
-
+        /*
         if (PlayerStat.indexPlayer == 0)
         {
             controls.Player1.Clone.started += ctx => clonePressed = true;
@@ -34,7 +34,7 @@ public class Clone : MonoBehaviour
             controls.Player2.Clone.started += ctx => clonePressed = true;
             controls.Player2.Clone.canceled += ctx => clonePressed = false;
         }
-
+        */
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
     }

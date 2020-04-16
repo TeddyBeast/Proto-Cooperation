@@ -91,7 +91,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Clone"",
+                    ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""d5a8c1ba-8c59-4574-9ed9-e659971710ae"",
                     ""expectedControlType"": """",
@@ -485,29 +485,29 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8cea9037-7658-46f2-abc9-97d354a16fa2"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Clone"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""ddedcbb9-9d95-49d9-b908-732311636239"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Clone"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""e1dec73d-4dca-4201-9549-bf1bf4f7e924"",
-                    ""path"": ""<Keyboard>/f"",
+                    ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -518,7 +518,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d1fc79a6-57dd-4ff5-90e3-5a4fec8e2271"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -605,7 +605,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Clone"",
+                    ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""d3228a91-ffe4-4993-81be-3a4d6976d243"",
                     ""expectedControlType"": """",
@@ -999,29 +999,29 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""036401e9-7b13-4051-9c28-3f00abffcca7"",
-                    ""path"": ""<Keyboard>/p"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
-                    ""action"": ""Clone"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""2ade58b4-061e-4d15-b875-46c61aebb4c7"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Clone"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""446976d0-3cd0-4e47-87b6-3b7b36fd3227"",
-                    ""path"": ""<Keyboard>/g"",
+                    ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -1032,7 +1032,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7bcf1ab3-0f92-4f75-94ac-57d6966c6ca4"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -1079,7 +1079,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player1_Aim = m_Player1.FindAction("Aim", throwIfNotFound: true);
         m_Player1_AddPortal = m_Player1.FindAction("AddPortal", throwIfNotFound: true);
         m_Player1_SwitchPortal = m_Player1.FindAction("SwitchPortal", throwIfNotFound: true);
-        m_Player1_Clone = m_Player1.FindAction("Clone", throwIfNotFound: true);
+        m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
         m_Player1_ThrowBreakGrapple = m_Player1.FindAction("Throw/Break Grapple", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
@@ -1092,7 +1092,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player2_Aim = m_Player2.FindAction("Aim", throwIfNotFound: true);
         m_Player2_AddPortal = m_Player2.FindAction("AddPortal", throwIfNotFound: true);
         m_Player2_SwitchPortal = m_Player2.FindAction("SwitchPortal", throwIfNotFound: true);
-        m_Player2_Clone = m_Player2.FindAction("Clone", throwIfNotFound: true);
+        m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
         m_Player2_ThrowBreakGrapple = m_Player2.FindAction("Throw/Break Grapple", throwIfNotFound: true);
     }
 
@@ -1152,7 +1152,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Aim;
     private readonly InputAction m_Player1_AddPortal;
     private readonly InputAction m_Player1_SwitchPortal;
-    private readonly InputAction m_Player1_Clone;
+    private readonly InputAction m_Player1_Shoot;
     private readonly InputAction m_Player1_ThrowBreakGrapple;
     public struct Player1Actions
     {
@@ -1167,7 +1167,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player1_Aim;
         public InputAction @AddPortal => m_Wrapper.m_Player1_AddPortal;
         public InputAction @SwitchPortal => m_Wrapper.m_Player1_SwitchPortal;
-        public InputAction @Clone => m_Wrapper.m_Player1_Clone;
+        public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputAction @ThrowBreakGrapple => m_Wrapper.m_Player1_ThrowBreakGrapple;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
@@ -1205,9 +1205,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @SwitchPortal.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSwitchPortal;
                 @SwitchPortal.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSwitchPortal;
                 @SwitchPortal.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSwitchPortal;
-                @Clone.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnClone;
-                @Clone.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnClone;
-                @Clone.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnClone;
+                @Shoot.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnShoot;
                 @ThrowBreakGrapple.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnThrowBreakGrapple;
@@ -1242,9 +1242,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @SwitchPortal.started += instance.OnSwitchPortal;
                 @SwitchPortal.performed += instance.OnSwitchPortal;
                 @SwitchPortal.canceled += instance.OnSwitchPortal;
-                @Clone.started += instance.OnClone;
-                @Clone.performed += instance.OnClone;
-                @Clone.canceled += instance.OnClone;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
                 @ThrowBreakGrapple.started += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled += instance.OnThrowBreakGrapple;
@@ -1265,7 +1265,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Aim;
     private readonly InputAction m_Player2_AddPortal;
     private readonly InputAction m_Player2_SwitchPortal;
-    private readonly InputAction m_Player2_Clone;
+    private readonly InputAction m_Player2_Shoot;
     private readonly InputAction m_Player2_ThrowBreakGrapple;
     public struct Player2Actions
     {
@@ -1280,7 +1280,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Aim => m_Wrapper.m_Player2_Aim;
         public InputAction @AddPortal => m_Wrapper.m_Player2_AddPortal;
         public InputAction @SwitchPortal => m_Wrapper.m_Player2_SwitchPortal;
-        public InputAction @Clone => m_Wrapper.m_Player2_Clone;
+        public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputAction @ThrowBreakGrapple => m_Wrapper.m_Player2_ThrowBreakGrapple;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
@@ -1318,9 +1318,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @SwitchPortal.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSwitchPortal;
                 @SwitchPortal.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSwitchPortal;
                 @SwitchPortal.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSwitchPortal;
-                @Clone.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnClone;
-                @Clone.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnClone;
-                @Clone.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnClone;
+                @Shoot.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnShoot;
                 @ThrowBreakGrapple.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnThrowBreakGrapple;
@@ -1355,9 +1355,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @SwitchPortal.started += instance.OnSwitchPortal;
                 @SwitchPortal.performed += instance.OnSwitchPortal;
                 @SwitchPortal.canceled += instance.OnSwitchPortal;
-                @Clone.started += instance.OnClone;
-                @Clone.performed += instance.OnClone;
-                @Clone.canceled += instance.OnClone;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
                 @ThrowBreakGrapple.started += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled += instance.OnThrowBreakGrapple;
@@ -1394,7 +1394,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnAddPortal(InputAction.CallbackContext context);
         void OnSwitchPortal(InputAction.CallbackContext context);
-        void OnClone(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
         void OnThrowBreakGrapple(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
@@ -1408,7 +1408,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnAim(InputAction.CallbackContext context);
         void OnAddPortal(InputAction.CallbackContext context);
         void OnSwitchPortal(InputAction.CallbackContext context);
-        void OnClone(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
         void OnThrowBreakGrapple(InputAction.CallbackContext context);
     }
 }

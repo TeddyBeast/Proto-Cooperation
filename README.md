@@ -11,8 +11,8 @@ S'accroupir = Ctrl gauche / Bouton B
 Mode télékinésie = Shif left / Gachette gauche
 Ajouter un portail = Touche A / Bouton X
 Switcher de portail = Touche E / Petite Gachette droite
-Clone : Touche C / Bouton Y
-Grappin : Touche F / Gachette droite
+Shoot : Touche F / Gachette droite
+Grappin : Touche G / Bouton Y
 
 
 Joueur 2 :	Clavier / Manette
@@ -24,5 +24,5 @@ S'accroupir = NumPad 0 / Bouton B
 Mode télékinésie = Clic droit de la souris / Gachette droite
 Ajouter un portail = NumPad 1 / Bouton X
 Switcher de portail = NumPad 2 / Petite Gachette droite
-Clone : Touche P / Bouton Y
-Grappin : Touche G / Gachette droite
+Shoot : Clic gauche de la souris / Gachette droite
+Grappin : Touche Shift Gauche / Bouton Y

@@ -91,11 +91,10 @@ public class CameraController : MonoBehaviour
 
             controls.Player2.CameraVertical.performed += ctx => moveV = ctx.ReadValue<float>();
             controls.Player2.CameraVertical.canceled += ctx => moveV = 0f;
-
+            
             controls.Player2.Aim.started += ctx => aimPressed = true;
             controls.Player2.Aim.performed += ctx => aimHold = true;
             controls.Player2.Aim.canceled += ctx => aimRelease = true;
-
         }
 
         // Override devices array to have good device connected to the player
