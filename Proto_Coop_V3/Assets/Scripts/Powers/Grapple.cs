@@ -29,6 +29,9 @@ public class Grapple : MonoBehaviour
 
     bool ThrowGrapple = false;
 
+    float ropeLength = 1;
+    bool attached = false;
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -100,6 +103,7 @@ public class Grapple : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         ThrowGrapple = false;
         LR = GetComponent<LineRenderer>();
+        ropeLength = 1;
     }
 
     // Update is called once per frame
@@ -109,8 +113,9 @@ public class Grapple : MonoBehaviour
         {
             //Debug.Log("Shooting");
             ShootHook();
+            attached = true;
         }
-        if (CamValues.aimHold == true)
+        if (CamValues.aimHold == true & !targeted)
         {
             //CameraVise.SetActive(true);
             //transform.GetChild(0).gameObject.SetActive(false);
@@ -151,6 +156,14 @@ public class Grapple : MonoBehaviour
         //    Destroy(GetComponent<SpringJoint>());
         //}
 
+        if (attached && CamValues.aimHold == true)
+        {
+            ReleaseRope();
+            attached = false;
+            LR.enabled = false;
+            targeted = false;
+        }
+
         Ray ray = new Ray(CamTransform.transform.position, CamTransform.transform.forward);
 
         if (CamValues.aimHold == true)
@@ -159,7 +172,7 @@ public class Grapple : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, 1000))
             {
-                Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
+                //Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
 
                
             }
@@ -189,10 +202,12 @@ public class Grapple : MonoBehaviour
         if (GetComponent<SpringJoint>() == null)
         {
             Rope = gameObject.AddComponent<SpringJoint>();
+            Rope.anchor = Vector3.zero;
         }
-        float distanceRope = Vector3.Distance(gameObject.transform.position, HookEndGO.transform.position);
-        Rope.maxDistance = distanceRope * 0.8f;
-        Rope.minDistance = distanceRope * 0.25f;
+        float distanceRope = Vector3.Distance(hookStart.transform.position, HookEndGO.transform.position);
+        ropeLength -= 0.01f;
+        Rope.maxDistance = distanceRope * ropeLength;
+        Rope.minDistance = distanceRope * 0.01f;
         //newRope.enableCollision = false;
         Rope.autoConfigureConnectedAnchor = false;
         Rope.connectedAnchor = HookEndGO.transform.position;
@@ -203,9 +218,21 @@ public class Grapple : MonoBehaviour
         //Rope = newRope;
     }
 
+    public void ReleaseRope()
+    {
+        if (GetComponent<SpringJoint>() != null)
+        {
+            Destroy(GetComponent<SpringJoint>());
+        }
+        Rope = null;
+        Destroy(HookEndGO);
+        ropeLength = 1;
+    }
+
     public void DrawRope()
     {
-        LR.SetPosition(0, transform.position);
+        LR.enabled = true;
+        LR.SetPosition(0, hookStart.transform.position);
         LR.SetPosition(1, HookEndGO.transform.position);
     }
 
