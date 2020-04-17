@@ -58,7 +58,6 @@ public class CameraController : MonoBehaviour
     {
         if (lockCursor)
         {
-            Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
@@ -67,6 +66,7 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         controls = new PlayerControls();
 
         InputSystem.onDeviceChange += InputSystem_onDeviceChange;
