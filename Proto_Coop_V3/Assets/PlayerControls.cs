@@ -105,6 +105,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CourteEchelle"",
+                    ""type"": ""Button"",
+                    ""id"": ""d4623118-ef38-4469-a8f3-afaef77c9d19"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -525,6 +533,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Throw/Break Grapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""622dbbfc-cb78-448f-9062-89a68580a935"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""614a68e7-f6ec-4425-8011-46023b619a9b"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -616,6 +646,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Throw/Break Grapple"",
                     ""type"": ""Button"",
                     ""id"": ""c081ad7f-a069-4737-b332-2fbf2c2b9bfb"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CourteEchelle"",
+                    ""type"": ""Button"",
+                    ""id"": ""44269c90-e07b-4c55-90d0-506d22306b50"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -1039,6 +1077,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Throw/Break Grapple"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13cf8c66-0a8d-49e4-a26e-b36cd9372a73"",
+                    ""path"": ""<Keyboard>/numpadPeriod"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e97225a6-366f-4dd3-8c54-d3bfffa13105"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1081,6 +1141,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player1_SwitchPortal = m_Player1.FindAction("SwitchPortal", throwIfNotFound: true);
         m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
         m_Player1_ThrowBreakGrapple = m_Player1.FindAction("Throw/Break Grapple", throwIfNotFound: true);
+        m_Player1_CourteEchelle = m_Player1.FindAction("CourteEchelle", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_MovementHorizontal = m_Player2.FindAction("MovementHorizontal", throwIfNotFound: true);
@@ -1094,6 +1155,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player2_SwitchPortal = m_Player2.FindAction("SwitchPortal", throwIfNotFound: true);
         m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
         m_Player2_ThrowBreakGrapple = m_Player2.FindAction("Throw/Break Grapple", throwIfNotFound: true);
+        m_Player2_CourteEchelle = m_Player2.FindAction("CourteEchelle", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1154,6 +1216,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_SwitchPortal;
     private readonly InputAction m_Player1_Shoot;
     private readonly InputAction m_Player1_ThrowBreakGrapple;
+    private readonly InputAction m_Player1_CourteEchelle;
     public struct Player1Actions
     {
         private @PlayerControls m_Wrapper;
@@ -1169,6 +1232,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @SwitchPortal => m_Wrapper.m_Player1_SwitchPortal;
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputAction @ThrowBreakGrapple => m_Wrapper.m_Player1_ThrowBreakGrapple;
+        public InputAction @CourteEchelle => m_Wrapper.m_Player1_CourteEchelle;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1211,6 +1275,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ThrowBreakGrapple.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnThrowBreakGrapple;
+                @CourteEchelle.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCourteEchelle;
+                @CourteEchelle.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCourteEchelle;
+                @CourteEchelle.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCourteEchelle;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -1248,6 +1315,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ThrowBreakGrapple.started += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled += instance.OnThrowBreakGrapple;
+                @CourteEchelle.started += instance.OnCourteEchelle;
+                @CourteEchelle.performed += instance.OnCourteEchelle;
+                @CourteEchelle.canceled += instance.OnCourteEchelle;
             }
         }
     }
@@ -1267,6 +1337,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_SwitchPortal;
     private readonly InputAction m_Player2_Shoot;
     private readonly InputAction m_Player2_ThrowBreakGrapple;
+    private readonly InputAction m_Player2_CourteEchelle;
     public struct Player2Actions
     {
         private @PlayerControls m_Wrapper;
@@ -1282,6 +1353,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @SwitchPortal => m_Wrapper.m_Player2_SwitchPortal;
         public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputAction @ThrowBreakGrapple => m_Wrapper.m_Player2_ThrowBreakGrapple;
+        public InputAction @CourteEchelle => m_Wrapper.m_Player2_CourteEchelle;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1324,6 +1396,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ThrowBreakGrapple.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnThrowBreakGrapple;
+                @CourteEchelle.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCourteEchelle;
+                @CourteEchelle.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCourteEchelle;
+                @CourteEchelle.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCourteEchelle;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -1361,6 +1436,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @ThrowBreakGrapple.started += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.performed += instance.OnThrowBreakGrapple;
                 @ThrowBreakGrapple.canceled += instance.OnThrowBreakGrapple;
+                @CourteEchelle.started += instance.OnCourteEchelle;
+                @CourteEchelle.performed += instance.OnCourteEchelle;
+                @CourteEchelle.canceled += instance.OnCourteEchelle;
             }
         }
     }
@@ -1396,6 +1474,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSwitchPortal(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnThrowBreakGrapple(InputAction.CallbackContext context);
+        void OnCourteEchelle(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -1410,5 +1489,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnSwitchPortal(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
         void OnThrowBreakGrapple(InputAction.CallbackContext context);
+        void OnCourteEchelle(InputAction.CallbackContext context);
     }
 }

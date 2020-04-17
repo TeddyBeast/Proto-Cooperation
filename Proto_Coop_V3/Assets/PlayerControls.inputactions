@@ -92,6 +92,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "CourteEchelle",
+                    "type": "Button",
+                    "id": "d4623118-ef38-4469-a8f3-afaef77c9d19",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -512,6 +520,28 @@
                     "action": "Throw/Break Grapple",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "622dbbfc-cb78-448f-9062-89a68580a935",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "614a68e7-f6ec-4425-8011-46023b619a9b",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -603,6 +633,14 @@
                     "name": "Throw/Break Grapple",
                     "type": "Button",
                     "id": "c081ad7f-a069-4737-b332-2fbf2c2b9bfb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CourteEchelle",
+                    "type": "Button",
+                    "id": "44269c90-e07b-4c55-90d0-506d22306b50",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -1024,6 +1062,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Throw/Break Grapple",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "13cf8c66-0a8d-49e4-a26e-b36cd9372a73",
+                    "path": "<Keyboard>/numpadPeriod",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e97225a6-366f-4dd3-8c54-d3bfffa13105",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CourteEchelle",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
