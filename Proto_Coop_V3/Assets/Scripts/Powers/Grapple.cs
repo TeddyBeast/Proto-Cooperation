@@ -116,7 +116,7 @@ public class Grapple : MonoBehaviour
             ShootHook();
             attached = true;
         }
-        if (CamValues.aimHold == true & !targeted)
+        if (CamValues.aimHold == true)
         {
             //CameraVise.SetActive(true);
             //transform.GetChild(0).gameObject.SetActive(false);
