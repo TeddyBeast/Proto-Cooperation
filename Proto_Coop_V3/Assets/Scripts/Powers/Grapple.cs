@@ -9,6 +9,7 @@ public class Grapple : MonoBehaviour
 {
     PlayerControls controls;
 
+    [Header("Settings")]
     public GameObject hookStart;
 
     public GameObject hookEnd;
@@ -236,14 +237,17 @@ public class Grapple : MonoBehaviour
         LR.SetPosition(1, HookEndGO.transform.position);
     }
 
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
         controls.Player2.Enable();
     }
+
     private void OnDisable()
     {
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }

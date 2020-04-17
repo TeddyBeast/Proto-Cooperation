@@ -330,6 +330,7 @@ public class CameraController : MonoBehaviour
         targetRenderer.sharedMaterial.color = temp;
     }
 
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
@@ -341,4 +342,5 @@ public class CameraController : MonoBehaviour
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }

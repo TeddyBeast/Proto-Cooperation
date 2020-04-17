@@ -5,19 +5,19 @@ using UnityEngine.InputSystem;
 
 public class Projectiles : MonoBehaviour
 {
-    public GameObject Projectile;
-    public Transform SpawnPoint;
-
     PlayerControls controls;
     InputDevice[] devicesAvailable = null;
 
+    [Header("Settings")]
+    public GameObject Projectile;
+    public Transform SpawnPoint;
     [SerializeField] private PlayerInputMovement PlayerSettings;
     [SerializeField] private CameraController CameraSettings;
     [SerializeField] private GameObject CameraTransform;
-
     public float powerShoot = 3f;
 
-    public bool shootPressed = false;
+    [Header("Debug")]
+    [SerializeField] private bool shootPressed = false;
 
     private void Start()
     {
@@ -112,6 +112,7 @@ public class Projectiles : MonoBehaviour
 
     }
 
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
@@ -123,4 +124,5 @@ public class Projectiles : MonoBehaviour
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }

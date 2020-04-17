@@ -6,17 +6,19 @@ using UnityEngine.InputSystem;
 public class CourteEchelle : MonoBehaviour
 {
     PlayerControls controls;
+
+    [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
-    public enum player { Player1, Player2}
+    public enum player { Player1, Player2 }
     public player Player;
 
     public float powerProjection = 100f;
 
-    public List<GameObject> playerTouched = new List<GameObject>();
-
-    public bool projectedPressed = false;
-    public bool otherPlayerTouched = false;
+    [Header("Debug")]
+    [SerializeField] List<GameObject> playerTouched = new List<GameObject>();
+    [SerializeField] private bool projectedPressed = false;
+    [SerializeField] private bool otherPlayerTouched = false;
 
     private void Start()
     {
@@ -96,7 +98,7 @@ public class CourteEchelle : MonoBehaviour
             if (otherPlayerTouched == true && projectedPressed == true)
             {
                 GameObject GO = playerTouched[0];
-                GO.GetComponent<Rigidbody>().AddForce(GO.transform.up * powerProjection, ForceMode.VelocityChange);
+                GO.GetComponent<PlayerInputMovement>().SuperJump(powerProjection);
             }
         }
         if (Player == player.Player2)
@@ -104,7 +106,7 @@ public class CourteEchelle : MonoBehaviour
             if (otherPlayerTouched == true && projectedPressed == true)
             {
                 GameObject GO = playerTouched[0];
-                GO.GetComponent<Rigidbody>().AddForce(GO.transform.up * powerProjection, ForceMode.VelocityChange);
+                GO.GetComponent<PlayerInputMovement>().SuperJump(powerProjection);
             }
         }
     }
@@ -147,7 +149,7 @@ public class CourteEchelle : MonoBehaviour
             }
         }
     }
-
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
@@ -159,4 +161,5 @@ public class CourteEchelle : MonoBehaviour
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }

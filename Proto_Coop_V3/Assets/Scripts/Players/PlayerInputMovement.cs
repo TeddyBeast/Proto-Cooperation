@@ -7,6 +7,7 @@ public class PlayerInputMovement : MonoBehaviour
 {
     PlayerControls controls;
 
+    [Header("Settings")]
     public Transform groundCheck;
 
     public LayerMask groundMask;
@@ -23,8 +24,8 @@ public class PlayerInputMovement : MonoBehaviour
     public float JumpHeight = 7f;
     public float gravity = -9.81f;
 
-    public bool isGrounded;
-
+    [Header("Debug")]
+    [SerializeField] private bool isGrounded;
     float moveHorizontal;
     float moveVertical;
 
@@ -152,6 +153,16 @@ public class PlayerInputMovement : MonoBehaviour
         }
     }
 
+    public void SuperJump(float powerProjection)
+    {
+        if (isGrounded)
+        {
+            print("Press jump");
+            velocity.y = Mathf.Sqrt(powerProjection * -2f * gravity);
+            rb.velocity = velocity;
+        }
+    }
+
     private void Crouch()
     {
         transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 2, transform.localScale.z);
@@ -163,6 +174,7 @@ public class PlayerInputMovement : MonoBehaviour
     }
 
 
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
@@ -174,4 +186,5 @@ public class PlayerInputMovement : MonoBehaviour
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }

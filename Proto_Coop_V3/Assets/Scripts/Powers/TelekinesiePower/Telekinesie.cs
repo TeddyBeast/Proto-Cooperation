@@ -9,6 +9,7 @@ public class Telekinesie : MonoBehaviour
 {
     PlayerControls controls;
 
+    [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
     [SerializeField] CameraController CamValues;
@@ -25,7 +26,8 @@ public class Telekinesie : MonoBehaviour
     float moveH;
     float moveV;
 
-    private bool powerActivate = false;
+    [Header("Debug")]
+    [SerializeField] private bool powerActivate = false;
 
 
     private void Start()
@@ -164,6 +166,7 @@ public class Telekinesie : MonoBehaviour
         }
     }
 
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
@@ -175,4 +178,5 @@ public class Telekinesie : MonoBehaviour
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }

@@ -7,6 +7,7 @@ public class PortalPower : MonoBehaviour
 {
     PlayerControls controls;
 
+    [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
     [SerializeField] private GameObject PortalA;
@@ -19,8 +20,9 @@ public class PortalPower : MonoBehaviour
 
     private int NbreSamePortal = 0;
 
-    private bool inputPlacePortalPressed = false;
-    private bool inputSwitchPortalPressed = false;
+    [Header("Debug")]
+    [SerializeField] private bool inputPlacePortalPressed = false;
+    [SerializeField] private bool inputSwitchPortalPressed = false;
 
     private void Start()
     {
@@ -152,6 +154,7 @@ public class PortalPower : MonoBehaviour
         }
     }
 
+    #region ACTIVATE CONTROLS
     private void OnEnable()
     {
         controls.Player1.Enable();
@@ -163,4 +166,5 @@ public class PortalPower : MonoBehaviour
         controls.Player1.Disable();
         controls.Player2.Disable();
     }
+    #endregion ACTIVATE CONTROLS
 }
