@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour
     public Vector2 pitchMinMax = new Vector2(-40f, 85f);
 
     public float rotationSmoothTime = 10f;
-    Vector3 currentRotation;
+    public Vector3 currentRotation;
 
     float h;
     float v;
