@@ -97,7 +97,6 @@ MonoBehaviour:
   distFromTarget: 11
   pitchMinMax: {x: -40, y: 85}
   rotationSmoothTime: 10
-  currentRotation: {x: 0, y: 0, z: 0}
   playerOffset: {x: 1.5, y: 1, z: -0.5}
   distanceFromOffset: 2
   rotator: {fileID: 325766463475620543}
@@ -450,7 +449,6 @@ MonoBehaviour:
   Crosshair: {fileID: 9073270362064858108}
   ListPlateforms: {fileID: 0}
   speedPlatform: 5
-  powerActivate: 0
 --- !u!114 &5769180914751333686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,8 +468,6 @@ MonoBehaviour:
     type: 3}
   distWall: 2
   ListPortals: {fileID: 0}
-  inputPlacePortalPressed: 0
-  inputSwitchPortalPressed: 0
 --- !u!114 &8892422323928677436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +481,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListPortals: {fileID: 0}
-  cam: {fileID: 5399686653144414866}
   distanceSpawnPortal: 2
 --- !u!114 &6424956275923369949
 MonoBehaviour:
