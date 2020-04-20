@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d51f8acad256c444092c5cc2521e401c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lockCursor: 0
+  lockCursor: 1
   sensivity: 2
   target: {fileID: 325766463475620543}
   PlayerStat: {fileID: 7890635864281456449}
@@ -352,9 +352,9 @@ GameObject:
   - component: {fileID: 5769180914751333686}
   - component: {fileID: 8892422323928677436}
   - component: {fileID: 6424956275923369949}
-  - component: {fileID: 2705851661572274144}
   - component: {fileID: 7780500809362042390}
   - component: {fileID: 8223303424900276918}
+  - component: {fileID: 2705851661572274144}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player 2
@@ -448,7 +448,8 @@ MonoBehaviour:
   CamTransform: {fileID: 325766462124651501}
   Crosshair: {fileID: 9073270362064858108}
   ListPlateforms: {fileID: 0}
-  speedPlatform: 5
+  speedPlatform: 7
+  powerActivate: 0
 --- !u!114 &5769180914751333686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,6 +469,8 @@ MonoBehaviour:
     type: 3}
   distWall: 2
   ListPortals: {fileID: 0}
+  inputPlacePortalPressed: 0
+  inputSwitchPortalPressed: 0
 --- !u!114 &8892422323928677436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,36 +506,6 @@ MonoBehaviour:
   CamTransform: {fileID: 325766462124651501}
   PlayerStat: {fileID: 7890635864281456449}
   Crosshair: {fileID: 9073270362064858108}
---- !u!114 &2705851661572274144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325766463475620542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player2
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 325766462124651496}
 --- !u!114 &7780500809362042390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,6 +544,36 @@ MonoBehaviour:
   playerTouched: []
   projectedPressed: 0
   otherPlayerTouched: 0
+--- !u!114 &2705851661572274144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325766463475620542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player2
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 325766462124651496}
 --- !u!1 &1031977940714156353
 GameObject:
   m_ObjectHideFlags: 0

@@ -664,7 +664,8 @@ MonoBehaviour:
   CamTransform: {fileID: 5967024336555573404}
   Crosshair: {fileID: 4573740533694281368}
   ListPlateforms: {fileID: 0}
-  speedPlatform: 5
+  speedPlatform: 7
+  powerActivate: 0
 --- !u!114 &5652743984986215045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -684,6 +685,8 @@ MonoBehaviour:
     type: 3}
   distWall: 2
   ListPortals: {fileID: 0}
+  inputPlacePortalPressed: 0
+  inputSwitchPortalPressed: 0
 --- !u!114 &1986405717569366711
 MonoBehaviour:
   m_ObjectHideFlags: 0

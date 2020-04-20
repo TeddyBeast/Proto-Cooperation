@@ -26,6 +26,8 @@ public class Telekinesie : MonoBehaviour
     float moveH;
     float moveV;
 
+    private FMOD.Studio.EventInstance event_fmod;
+
     [Header("Debug")]
     [SerializeField] private bool powerActivate = false;
 
@@ -34,9 +36,10 @@ public class Telekinesie : MonoBehaviour
     {
         ListPlateforms = FindObjectOfType(typeof(ListMovablePlatforms)) as ListMovablePlatforms;
         PlayerSettings = GetComponent<PlayerInputMovement>();
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Télékinésie");
     }
 
-    
+
     private void Awake()
     {
         controls = new PlayerControls();
@@ -126,26 +129,12 @@ public class Telekinesie : MonoBehaviour
                     {
                         PlateformTouched = plateform;
                         PlateformTouched.GetComponent<Outline>().enabled = true;
-
+                        event_fmod.start();
                         powerActivate = true;
                     }
                 }
             }
         }
-
-        if (CamValues.aimRelease == true)
-        {
-            PlayerSettings.enabled = enabled;
-            Crosshair.enabled = false;
-
-            foreach (GameObject plateform in ListPlateforms.PlateformMovableTelekinesie)
-            {
-                plateform.GetComponent<Outline>().enabled = false;
-            }
-
-            powerActivate = false;
-        }
-
 
         if (powerActivate == true)
         {
@@ -163,6 +152,20 @@ public class Telekinesie : MonoBehaviour
             Vector3 targetPos = PlateformTouched.transform.position + desiredMove * speedPlatform * Time.deltaTime;
 
             rb.MovePosition(targetPos);
+        }
+
+        if (CamValues.aimRelease == true)
+        {
+            PlayerSettings.enabled = enabled;
+            Crosshair.enabled = false;
+
+            foreach (GameObject plateform in ListPlateforms.PlateformMovableTelekinesie)
+            {
+                plateform.GetComponent<Outline>().enabled = false;
+            }
+
+            powerActivate = false;
+            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 
