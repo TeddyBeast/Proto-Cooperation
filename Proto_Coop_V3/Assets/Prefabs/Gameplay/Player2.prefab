@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 325766462124651501}
   - component: {fileID: 325766462124651496}
   - component: {fileID: 5399686653144414866}
-  - component: {fileID: 325766462124651502}
+  - component: {fileID: 2697272762724638747}
   - component: {fileID: 325766462124651500}
   m_Layer: 0
   m_Name: Camera Player2
@@ -94,7 +94,7 @@ MonoBehaviour:
   sensivity: 2
   target: {fileID: 325766463475620543}
   PlayerStat: {fileID: 7890635864281456449}
-  distFromTarget: 11
+  distFromTarget: 15
   pitchMinMax: {x: -40, y: 85}
   rotationSmoothTime: 10
   playerOffset: {x: 1.5, y: 1, z: -0.5}
@@ -113,14 +113,19 @@ MonoBehaviour:
   aimPressed: 0
   aimHold: 0
   aimRelease: 1
---- !u!81 &325766462124651502
-AudioListener:
+--- !u!114 &2697272762724638747
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325766462124651475}
-  m_Enabled: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!114 &325766462124651500
 MonoBehaviour:
   m_ObjectHideFlags: 0
