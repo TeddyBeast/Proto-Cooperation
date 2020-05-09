@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SceneTeddy.unity
-    guid: bb069527be92dcc4bb030fc2f0d217f8
+    path: Assets/Scenes/SceneNicolas.unity
+    guid: 1568d1c2bee09fd4e975718c5cf6a2bd
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b92bc6efe9b970141841c871727eb354,
       type: 2}
