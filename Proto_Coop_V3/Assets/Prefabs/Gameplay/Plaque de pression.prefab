@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 3793543508618226758}
   - component: {fileID: 3793543508618226809}
   m_Layer: 0
-  m_Name: BoutonPoussoir
+  m_Name: Plaque de pression
   m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,9 @@ MonoBehaviour:
   ButtonOff: {fileID: 2100000, guid: 2f726a515ba25294e971301d885f9d02, type: 2}
   ButtonOn: {fileID: 2100000, guid: fa3648c1148b37e41bdbbd3e5d775ee8, type: 2}
   openSpeed: 0.2
-  OuvertureMaxPorte: 5
+  OuvertureMaxPorte: 10
   OuvertureMinPorte: 0
-  ouverture: 0
-  fermeture: 0
+  MaintienBouton: 1
+  ActiveBouton: 0
+  ActiveTimerButton: 0
+  DurationOpenDoor: 3
