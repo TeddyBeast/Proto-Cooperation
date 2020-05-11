@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SceneNicolas.unity
-    guid: 1568d1c2bee09fd4e975718c5cf6a2bd
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 6841c62370b4c7049a8bf44e3793a3c5
