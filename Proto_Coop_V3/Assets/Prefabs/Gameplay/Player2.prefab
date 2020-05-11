@@ -545,7 +545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSettings: {fileID: 7890635864281456449}
   Player: 1
-  powerProjection: 20
+  powerProjection: 5
   playerTouched: []
   projectedPressed: 0
   otherPlayerTouched: 0
