@@ -12,36 +12,38 @@ public class ButtonPlateform : MonoBehaviour
     public float openSpeed = 0.2f;
     public float OuvertureMaxPorte = 5f;
     public float OuvertureMinPorte = 0f;
+    float OuvertureMax = 0f;
 
     public bool ouverture = false;
     public bool fermeture = false;
 
     private void Start()
     {
-        OuvertureMinPorte = Porte.transform.position.y;
+        OuvertureMinPorte = Porte.transform.localPosition.y;
+        OuvertureMax = Porte.transform.localPosition.y + OuvertureMaxPorte;
     }
 
     private void Update()
     {
         //Porte s'ouvre
-        if (ouverture == true && Porte.transform.position.y <= OuvertureMaxPorte)
+        if (ouverture == true && Porte.transform.localPosition.y <= OuvertureMax)
         {
-            Vector3 posPorte = Porte.transform.position;
+            Vector3 posPorte = Porte.transform.localPosition;
             posPorte.y += openSpeed;
-            Porte.transform.position = posPorte;
+            Porte.transform.localPosition = posPorte;
         }
-        if (Porte.transform.position.y >= OuvertureMaxPorte)
+        if (Porte.transform.localPosition.y >= OuvertureMax)
         {
             ouverture = false;
         }
 
-        if (fermeture == true && Porte.transform.position.y >= OuvertureMinPorte)
+        if (fermeture == true && Porte.transform.localPosition.y >= OuvertureMinPorte)
         {
-            Vector3 posPorte = Porte.transform.position;
+            Vector3 posPorte = Porte.transform.localPosition;
             posPorte.y -= openSpeed;
-            Porte.transform.position = posPorte;
+            Porte.transform.localPosition = posPorte;
         }
-        if (Porte.transform.position.y <= OuvertureMinPorte)
+        if (Porte.transform.localPosition.y <= OuvertureMinPorte)
         {
             fermeture = false;
         }
@@ -57,7 +59,7 @@ public class ButtonPlateform : MonoBehaviour
             transform.position = pos;
 
             // Start Open Door
-            if (OuvertureMaxPorte <= 5f)
+            if (Porte.transform.localPosition.y <= OuvertureMax)
             {
                 fermeture = false;
                 ouverture = true;
