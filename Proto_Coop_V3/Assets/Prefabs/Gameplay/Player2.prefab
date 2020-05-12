@@ -443,7 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a6a57ef33e964d89c82943952966a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 6920874701147095349, guid: 7043ab4a914471b4eb0d66f485589b2e,
+  Projectile: {fileID: 5111025088187650362, guid: 7043ab4a914471b4eb0d66f485589b2e,
     type: 3}
   SpawnPoint: {fileID: 2437384701323002007}
   PlayerSettings: {fileID: 7890635864281456449}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: cc700a40e687d2b4eb63f310f365004f
+guid: af3b865753f1c93408025993aa6da13b
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,13 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bamboo_Color
-    second: {fileID: 2100000, guid: a77cb4aaf6587c745839db6e83dba70b, type: 2}
+      name: Coconut
+    second: {fileID: 2100000, guid: 64b90a2fce2ced14081cfd5b86a8e614, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Bamboo_White
-    second: {fileID: 2100000, guid: 9b3b54cf83e5e184487affe52fb45dff, type: 2}
+      name: HoleCoconut
+    second: {fileID: 2100000, guid: 971679272197fc142babce9e9325ac51, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -32,7 +32,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
+    importConstraints: 1
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -51,8 +51,8 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
