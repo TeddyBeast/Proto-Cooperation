@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.33371308, g: 0.4997731, b: 0.8330084, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: targetRenderer
       value: 
       objectReference: {fileID: 262442641}
+    - target: {fileID: 1096351812771615841, guid: a76c0dba2952b744a8fab5d9cf2646c3,
+        type: 3}
+      propertyPath: collisionMask.m_Bits
+      value: 1793
+      objectReference: {fileID: 0}
     - target: {fileID: 4040980318509704343, guid: a76c0dba2952b744a8fab5d9cf2646c3,
         type: 3}
       propertyPath: m_LocalPosition.z
