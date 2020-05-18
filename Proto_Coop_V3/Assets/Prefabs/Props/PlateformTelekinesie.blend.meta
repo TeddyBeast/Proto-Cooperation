@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48f2bd72ffff79e43a6f697778bd40b2
+guid: 07933bc4c73950242926769d52a8e5a1
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a06e92ccf429efe458127ad46e2ac9d8, type: 2}
+      name: PlateformeClaire
+    second: {fileID: 2100000, guid: fbc17fc5f02b5814298fa8994eff04e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "PlateformeFonc\xE9"
+    second: {fileID: 2100000, guid: b434105d934c5f24f8ef4c639d07ba78, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

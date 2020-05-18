@@ -12,6 +12,8 @@ public class PluieObject : MonoBehaviour
     float timer = 0f;
     public float lifeTimeObjects = 5f;
 
+    GameObject GO;
+
     private void Update()
     {
         timer += Time.deltaTime;
@@ -27,7 +29,7 @@ public class PluieObject : MonoBehaviour
     {
         Vector3 pos = transform.position + new Vector3(Random.Range(-size.x / 2, size.x / 2), Random.Range(-size.y / 2, size.y / 2), Random.Range(-size.z / 2, size.z / 2));
 
-        GameObject GO = Instantiate(ObjectPrefab, pos, Quaternion.identity);
+        GO = Instantiate(ObjectPrefab, pos, Quaternion.identity);
 
         Destroy(GO, lifeTimeObjects);
     }

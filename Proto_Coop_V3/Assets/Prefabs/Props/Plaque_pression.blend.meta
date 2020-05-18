@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48f2bd72ffff79e43a6f697778bd40b2
+guid: 2b09e36872d51954c939496bc51b91b5
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,8 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: No Name
-    second: {fileID: 2100000, guid: a06e92ccf429efe458127ad46e2ac9d8, type: 2}
+      name: ContourPlaque
+    second: {fileID: 2100000, guid: 0d9d19288d7f1844cb43db1b088509ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plaque
+    second: {fileID: 2100000, guid: a233cd47f448f8e4abd9ef490c46f75d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rune
+    second: {fileID: 2100000, guid: beecd35e341af40459cf091ab4e4023e, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
