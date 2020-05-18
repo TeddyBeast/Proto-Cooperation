@@ -35,57 +35,62 @@ public class ButtonPlateform : MonoBehaviour
 
     private void Update()
     {
+        #region Maintien Boutton
         if (MaintienBouton == true)
         {
             //Porte s'ouvre
-            if (ouverture == true && Porte.transform.localPosition.y <= ouvertureMax)
-            {
-                Vector3 posPorte = Porte.transform.localPosition;
-                posPorte.y += openSpeed;
-                Porte.transform.localPosition = posPorte;
-            }
-            if (Porte.transform.localPosition.y >= ouvertureMax)
-            {
-                ouverture = false;
-            }
-
-            if (fermeture == true && Porte.transform.localPosition.y >= ouvertureMinPorte)
+            if (ouverture == true && Porte.transform.localPosition.y >= ouvertureMax)
             {
                 Vector3 posPorte = Porte.transform.localPosition;
                 posPorte.y -= openSpeed;
                 Porte.transform.localPosition = posPorte;
             }
-            if (Porte.transform.localPosition.y <= ouvertureMinPorte)
+            if (Porte.transform.localPosition.y <= ouvertureMax)
+            {
+                ouverture = false;
+            }
+
+            if (fermeture == true && Porte.transform.localPosition.y <= ouvertureMinPorte)
+            {
+                Vector3 posPorte = Porte.transform.localPosition;
+                posPorte.y += openSpeed;
+                Porte.transform.localPosition = posPorte;
+            }
+            if (Porte.transform.localPosition.y >= ouvertureMinPorte)
             {
                 fermeture = false;
             }
         }
+        #endregion Maintien Button
 
+        #region Active Boutton
         if (ActiveBouton == true)
         {
             if (ouverture == true)
             {
                 Vector3 posPorte = Porte.transform.localPosition;
-                posPorte.y += openSpeed;
+                posPorte.y -= openSpeed;
                 Porte.transform.localPosition = posPorte;
             }
-            if (Porte.transform.localPosition.y >= ouvertureMax)
+            if (Porte.transform.localPosition.y <= ouvertureMax)
             {
                 ouverture = false;
             }
         }
+        #endregion Active Boutton
 
+        #region TimerButton
         if (ActiveTimerButton == true)
         {
             timer += Time.deltaTime;
 
-            if (ouverture == true)
+            if (ouverture == true && fermeture==false)
             {
                 Vector3 posPorte = Porte.transform.localPosition;
-                posPorte.y += openSpeed;
+                posPorte.y -= openSpeed;
                 Porte.transform.localPosition = posPorte;
             }
-            if (Porte.transform.localPosition.y >= ouvertureMax)
+            if (Porte.transform.localPosition.y <= ouvertureMax)
             {
                 ouverture = false;
             }
@@ -95,13 +100,13 @@ public class ButtonPlateform : MonoBehaviour
                 fermeture = true;
             }
 
-            if (fermeture == true && Porte.transform.localPosition.y >= ouvertureMinPorte)
+            if (fermeture == true && Porte.transform.localPosition.y <= ouvertureMinPorte)
             {
                 Vector3 posPorte = Porte.transform.localPosition;
-                posPorte.y -= openSpeed;
+                posPorte.y += openSpeed;
                 Porte.transform.localPosition = posPorte;
             }
-            if (Porte.transform.localPosition.y <= ouvertureMinPorte)
+            if (Porte.transform.localPosition.y >= ouvertureMinPorte)
             {
                 fermeture = false;
                 timer = 0f;
@@ -113,6 +118,7 @@ public class ButtonPlateform : MonoBehaviour
 
                 ButtonRune.material = ButtonOff;
             }
+            #endregion TimerButton
         }
     }
 
@@ -130,7 +136,7 @@ public class ButtonPlateform : MonoBehaviour
             if (MaintienBouton == true)
             {
                 // Start Open Door
-                if (Porte.transform.localPosition.y <= ouvertureMax)
+                if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
                     fermeture = false;
                     ouverture = true;
@@ -140,7 +146,7 @@ public class ButtonPlateform : MonoBehaviour
             if (ActiveBouton == true)
             {
                 // Start Open Door
-                if (Porte.transform.localPosition.y <= ouvertureMax)
+                if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
                     ouverture = true;
                 }
@@ -149,7 +155,7 @@ public class ButtonPlateform : MonoBehaviour
             if (ActiveTimerButton == true)
             {
                 // Start Open Door
-                if (Porte.transform.localPosition.y <= ouvertureMax)
+                if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
                     ouverture = true;
                 }
