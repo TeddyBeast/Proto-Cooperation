@@ -7,6 +7,8 @@ public class CourteEchelle : MonoBehaviour
 {
     PlayerControls controls;
 
+    public Animator Anim;
+
     [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
@@ -45,6 +47,8 @@ public class CourteEchelle : MonoBehaviour
 
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
+
+        Anim = GetComponentInChildren<Animator>();
     }
 
     #region MANAGE GAMEPADS
@@ -97,6 +101,7 @@ public class CourteEchelle : MonoBehaviour
         {
             if (otherPlayerTouched == true && projectedPressed == true)
             {
+                Anim.Play("Projete");
                 GameObject GO = playerTouched[0];
                 GO.GetComponent<PlayerInputMovement>().SuperJump(powerProjection);
             }
@@ -105,6 +110,7 @@ public class CourteEchelle : MonoBehaviour
         {
             if (otherPlayerTouched == true && projectedPressed == true)
             {
+                Anim.Play("Projete");
                 GameObject GO = playerTouched[0];
                 GO.GetComponent<PlayerInputMovement>().SuperJump(powerProjection);
             }

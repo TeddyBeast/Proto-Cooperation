@@ -7,6 +7,8 @@ public class PortalPower : MonoBehaviour
 {
     PlayerControls controls;
 
+    public Animator Anim;
+
     [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
@@ -52,6 +54,8 @@ public class PortalPower : MonoBehaviour
 
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
+
+        Anim = GetComponentInChildren<Animator>();
     }
 
     #region MANAGE GAMEPADS
@@ -112,6 +116,7 @@ public class PortalPower : MonoBehaviour
                     if (ListPortals.PortalsPlaced.Count == 0)
                     {
                         ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, transform.rotation = hit.transform.rotation));
+                        Anim.Play("Portail");
                         FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail");
                     }
 

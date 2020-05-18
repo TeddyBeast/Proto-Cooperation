@@ -8,6 +8,8 @@ public class Projectiles : MonoBehaviour
     PlayerControls controls;
     InputDevice[] devicesAvailable = null;
 
+    public Animator Anim;
+
     [Header("Settings")]
     public GameObject Projectile;
     public Transform SpawnPoint;
@@ -43,6 +45,8 @@ public class Projectiles : MonoBehaviour
 
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
+
+        Anim = GetComponentInChildren<Animator>();
     }
 
     #region MANAGE GAMEPADS
@@ -109,6 +113,7 @@ public class Projectiles : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/Tir");
             GO.GetComponent<Rigidbody>().AddForce(CameraTransform.transform.forward * powerShoot, ForceMode.Impulse);
             shootPressed = false;
+            Anim.Play("Coconut");
         }
 
     }
