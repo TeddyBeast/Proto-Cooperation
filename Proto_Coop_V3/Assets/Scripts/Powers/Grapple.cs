@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class Grapple : MonoBehaviour
 {
     PlayerControls controls;
+    public Animator Anim;
 
     [Header("Settings")]
     public GameObject hookStart;
@@ -52,6 +53,7 @@ public class Grapple : MonoBehaviour
 
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
+        Anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -217,6 +219,8 @@ public class Grapple : MonoBehaviour
         Rope.massScale = 10f;
         //GameObject.DestroyImmediate(Rope);
         //Rope = newRope;
+        Anim.SetBool("BreakRope", false);
+        Anim.Play("StartSwing");
     }
 
     public void ReleaseRope()
@@ -228,6 +232,7 @@ public class Grapple : MonoBehaviour
         Rope = null;
         Destroy(HookEndGO);
         ropeLength = 1;
+        Anim.SetBool("BreakRope", true);
     }
 
     public void DrawRope()

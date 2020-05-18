@@ -7,6 +7,8 @@ public class PlayerInputMovement : MonoBehaviour
 {
     PlayerControls controls;
 
+    public Animator Anim;
+
     [Header("Settings")]
     public Transform groundCheck;
 
@@ -74,6 +76,8 @@ public class PlayerInputMovement : MonoBehaviour
 
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
+
+        Anim = GetComponentInChildren<Animator>();
     }
 
     #region MANAGE GAMEPADS
@@ -139,6 +143,11 @@ public class PlayerInputMovement : MonoBehaviour
         //velocity.y += gravity * Time.deltaTime;
 
         //rb.velocity = velocity;
+
+        if (desiredMove != Vector3.zero)
+        {
+            Anim.Play("Walk");
+        }
     }
 
     private void Jump()

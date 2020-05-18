@@ -9,6 +9,8 @@ public class Telekinesie : MonoBehaviour
 {
     PlayerControls controls;
 
+    public Animator Anim;
+
     [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
@@ -66,6 +68,8 @@ public class Telekinesie : MonoBehaviour
 
         // Override devices array to have good device connected to the player
         controls.devices = GetAvailableDevices();
+
+        Anim = GetComponentInChildren<Animator>();
     }
 
     #region MANAGE GAMEPADS
@@ -138,6 +142,8 @@ public class Telekinesie : MonoBehaviour
 
         if (powerActivate == true)
         {
+            Anim.SetBool("BreakTelekynesie", false);
+            Anim.Play("TelekynesieStart");
             PlayerSettings.enabled = false;
 
             Rigidbody rb;
@@ -165,6 +171,7 @@ public class Telekinesie : MonoBehaviour
             }
 
             powerActivate = false;
+            Anim.SetBool("BreakTelekynesie", true);
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
