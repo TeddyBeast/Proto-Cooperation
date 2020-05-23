@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonPlateform : MonoBehaviour
+public class ButtonPorte : MonoBehaviour
 {
     public GameObject Porte;
 
@@ -130,6 +130,7 @@ public class ButtonPlateform : MonoBehaviour
             Vector3 pos = transform.position;
             pos.y = pressionMaxButton;
             transform.position = pos;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
 
             ButtonRune.material = ButtonOn;
 
@@ -140,6 +141,7 @@ public class ButtonPlateform : MonoBehaviour
                 {
                     fermeture = false;
                     ouverture = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
                 }
             }
 
@@ -149,6 +151,7 @@ public class ButtonPlateform : MonoBehaviour
                 if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
                     ouverture = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
                 }
             }
 
@@ -158,6 +161,7 @@ public class ButtonPlateform : MonoBehaviour
                 if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
                     ouverture = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
                 }
             }
 
@@ -174,10 +178,12 @@ public class ButtonPlateform : MonoBehaviour
                 Vector3 pos = transform.position;
                 pos.y = -pressionMaxButton;
                 transform.position = pos;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
 
                 //Start Close Door
                 ouverture = false;
                 fermeture = true;
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
 
 
                 ButtonRune.material = ButtonOff;

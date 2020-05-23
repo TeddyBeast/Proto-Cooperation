@@ -31,6 +31,8 @@ public class PlayerInputMovement : MonoBehaviour
     float moveHorizontal;
     float moveVertical;
 
+    private FMOD.Studio.EventInstance event_fmod;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -38,6 +40,8 @@ public class PlayerInputMovement : MonoBehaviour
         velocity = rb.velocity;
 
         InitScale = transform.localScale;
+
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Marche");
     }
 
     private void Awake()
@@ -148,6 +152,14 @@ public class PlayerInputMovement : MonoBehaviour
         {
             Anim.Play("Walk");
         }
+
+        event_fmod.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+
+        // Walking Sound
+        if (isGrounded && desiredMove.x == 0f || desiredMove.z == 0f)
+        {
+            event_fmod.start();
+        }
     }
 
     private void Jump()
@@ -158,6 +170,7 @@ public class PlayerInputMovement : MonoBehaviour
             //velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             velocity.y = JumpHeight;
             rb.velocity = velocity;
+            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 
@@ -165,7 +178,8 @@ public class PlayerInputMovement : MonoBehaviour
     {
         if (isGrounded)
         {
-            print("Press jump");
+            print("Press Super jump");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Projection", transform.position);
             velocity.y = Mathf.Sqrt(powerProjection * -2f * gravity);
             rb.velocity = velocity;
         }

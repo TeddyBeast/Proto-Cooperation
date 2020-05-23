@@ -118,12 +118,13 @@ public class Telekinesie : MonoBehaviour
     private void Update()
     {
         Ray ray = new Ray(CamTransform.transform.position, CamTransform.transform.forward);
+        event_fmod.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
         if (CamValues.aimHold == true)
         {
             Crosshair.enabled = enabled;
 
-            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
             {
                 Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
 

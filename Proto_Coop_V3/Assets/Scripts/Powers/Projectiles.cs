@@ -110,7 +110,7 @@ public class Projectiles : MonoBehaviour
         if (shootPressed == true && CameraSettings.aimHold == true)
         {
             GameObject GO = Instantiate(Projectile, SpawnPoint.transform.position, CameraTransform.transform.rotation);
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Tir");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Tir", transform.position);
             GO.GetComponent<Rigidbody>().AddForce(CameraTransform.transform.forward * powerShoot, ForceMode.Impulse);
             shootPressed = false;
             Anim.Play("Coconut");

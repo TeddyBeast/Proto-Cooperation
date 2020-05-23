@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 325766462124651501}
   - component: {fileID: 325766462124651496}
   - component: {fileID: 5399686653144414866}
-  - component: {fileID: 2697272762724638747}
   - component: {fileID: 325766462124651500}
   m_Layer: 0
   m_Name: Camera Player2
@@ -113,19 +112,6 @@ MonoBehaviour:
   aimPressed: 0
   aimHold: 0
   aimRelease: 1
---- !u!114 &2697272762724638747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 325766462124651475}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ListenerNumber: -1
 --- !u!114 &325766462124651500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,6 +266,7 @@ GameObject:
   - component: {fileID: 8223303424900276918}
   - component: {fileID: 2705851661572274144}
   - component: {fileID: 8671013891255204277}
+  - component: {fileID: 7861677571711553159}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player 2
@@ -346,13 +333,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c90ff874b43d44c4ebde0a42820f9274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   groundCheck: {fileID: 325766463475620543}
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
   indexPlayer: 1
   speed: 9
-  groundDistance: 1
+  groundDistance: 1.1
   JumpHeight: 5
   gravity: -29.43
   isGrounded: 0
@@ -368,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1427133f66b457948a792cc5638c806a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   PlayerSettings: {fileID: 7890635864281456449}
   CamValues: {fileID: 5399686653144414866}
   CamTransform: {fileID: 325766462124651501}
@@ -387,6 +376,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53f9dfb6cf544841b5be1fb17bebd61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   PlayerSettings: {fileID: 7890635864281456449}
   PortalA: {fileID: 6051725600263306044, guid: f750cc39fcaf0724fadd75f4d357c545, type: 3}
   PortalB: {fileID: 3594961872683041629, guid: 665e92299efbc72408700b3feff3c066, type: 3}
@@ -422,6 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 563412e47a437e440a2b8fb516918e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   hookStart: {fileID: 3434368198170637980}
   hookEnd: {fileID: 1389200192910480327, guid: 72c89dbd134e9eb489aa299e24364fdf, type: 3}
   targeted: 0
@@ -443,6 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a6a57ef33e964d89c82943952966a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   Projectile: {fileID: 5111025088187650362, guid: 7043ab4a914471b4eb0d66f485589b2e,
     type: 3}
   SpawnPoint: {fileID: 2437384701323002007}
@@ -463,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c799635883e004c8e9921a72844267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
   PlayerSettings: {fileID: 7890635864281456449}
   Player: 1
   powerProjection: 5
@@ -596,6 +589,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &7861677571711553159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325766463475620542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9cc27d16dd48d04cb745b3544fdd40c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SavePos: {x: 0, y: 0, z: 0}
 --- !u!1 &1031977940714156353
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +816,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8396959995439991845
 GameObject:
@@ -903,6 +909,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068150611466395274, guid: 3833f310d795be747a29e516b5240045,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068150611466395274, guid: 3833f310d795be747a29e516b5240045,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068150611466395274, guid: 3833f310d795be747a29e516b5240045,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4073941864624221337, guid: 3833f310d795be747a29e516b5240045,
         type: 3}

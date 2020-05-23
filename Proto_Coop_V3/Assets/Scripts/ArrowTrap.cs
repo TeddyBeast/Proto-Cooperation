@@ -48,6 +48,7 @@ public class ArrowTrap : MonoBehaviour
                 {
                     GameObject GO = Instantiate(Arrow, SpawnPoints.transform.position, SpawnPoints.transform.rotation);
                     GO.GetComponent<Rigidbody>().AddForce(SpawnPoints.transform.forward * speedArrows, ForceMode.Impulse);
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Piège Flèches", transform.position);
                     Destroy(GO, distanceMaxArrows);
                 }
                 nbreSalve++;

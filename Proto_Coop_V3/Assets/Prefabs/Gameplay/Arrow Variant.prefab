@@ -97,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arrow Variant
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ae37ccbafc641184daae16f7587fb3de,
+        type: 3}
+      propertyPath: m_TagString
+      value: Agent Hostile
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae37ccbafc641184daae16f7587fb3de, type: 3}
 --- !u!1 &7118540773166830929 stripped

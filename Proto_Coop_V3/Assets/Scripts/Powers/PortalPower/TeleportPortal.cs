@@ -25,7 +25,7 @@ public class TeleportPortal : MonoBehaviour
                     {
                         print("Find portalB");
                         transform.position = portal.transform.position - portal.transform.forward * distanceSpawnPortal;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/Utiliser Portail");
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Utiliser Portail", transform.position);
                     }
                 }
             }
@@ -37,7 +37,7 @@ public class TeleportPortal : MonoBehaviour
                     if (portal.tag == "PortalA")
                     {
                         transform.position = portal.transform.position - portal.transform.forward * distanceSpawnPortal;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/Utiliser Portail");
+                        FMODUnity.RuntimeManager.PlayOneShot("event:/Utiliser Portail", transform.position);
                     }
                 }
             }

@@ -14,12 +14,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "D:/2GD Projet 2\xE8me Semestre/Git/Proto-Cooperation/Proto_Coop_V3/Assets/Fmod_Project/FMODS2/Build/Desktop/Master.strings.bank"
   SubDir: 
-  lastModified: 637229957304145858
+  lastModified: 637258734159090596
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 888
+    Value: 1188
   Exists: 1
+--- !u!114 &-7198458226863254121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Mort
+  m_EditorClassIdentifier: 
+  Path: event:/Mort
+  guid: b55c1763ce4f82469ff4de39277d7085
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3125
 --- !u!114 &-6986396592772907462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +65,76 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1095
+  Length: 400
+--- !u!114 &-3877061668406191288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bouton Porte
+  m_EditorClassIdentifier: 
+  Path: event:/Bouton Porte
+  guid: 566707a1086b7145b35af9a6531e536f
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 300
+  Length: 790
+--- !u!114 &-3331929932600668218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Marche
+  m_EditorClassIdentifier: 
+  Path: event:/Marche
+  guid: 90e28439b4ffca4fb834823b20a40cc2
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 700
+--- !u!114 &-2568880871933747224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Checkpoint
+  m_EditorClassIdentifier: 
+  Path: event:/Checkpoint
+  guid: 597f7c60b92639418e7f6a645666152c
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 7250
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,12 +155,19 @@ MonoBehaviour:
   - {fileID: -6986396592772907462}
   - {fileID: 2300090022532886337}
   - {fileID: 77966522063049729}
+  - {fileID: 4072149483044999047}
+  - {fileID: 7224488682570130477}
+  - {fileID: -3877061668406191288}
+  - {fileID: -2568880871933747224}
+  - {fileID: -3331929932600668218}
+  - {fileID: -7198458226863254121}
+  - {fileID: 6998528057702771804}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3350512202451121255}
   StringsBanks:
   - {fileID: -7863299275078736309}
-  stringsBankWriteTime: 637229957304145858
+  stringsBankWriteTime: 637258734159090596
   cacheVersion: 3
 --- !u!114 &77966522063049729
 MonoBehaviour:
@@ -92,7 +191,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 3717
+  Length: 2874
 --- !u!114 &1212578518979984542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,12 +249,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "D:/2GD Projet 2\xE8me Semestre/Git/Proto-Cooperation/Proto_Coop_V3/Assets/Fmod_Project/FMODS2/Build/Desktop/Master.bank"
   SubDir: 
-  lastModified: 637229957304104465
+  lastModified: 637258734158975124
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 151040
+    Value: 377920
   Exists: 1
+--- !u!114 &4072149483044999047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Porte
+  m_EditorClassIdentifier: 
+  Path: event:/Porte
+  guid: 0cabb52e7f3eb64f910aa5a6752a4949
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3536
 --- !u!114 &4435963478663414096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,4 +320,50 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 1500
+  Length: 600
+--- !u!114 &6998528057702771804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Projection
+  m_EditorClassIdentifier: 
+  Path: event:/Projection
+  guid: f2811e78926a274591dd2d3e8cee00a1
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1936
+--- !u!114 &7224488682570130477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/Pi\xE8ge Fl\xE8ches"
+  m_EditorClassIdentifier: 
+  Path: "event:/Pi\xE8ge Fl\xE8ches"
+  guid: 1ab7c33d7f918541a76517737a7753a1
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 600

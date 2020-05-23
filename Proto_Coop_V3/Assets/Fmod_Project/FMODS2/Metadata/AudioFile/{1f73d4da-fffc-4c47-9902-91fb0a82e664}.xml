@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{1f73d4da-fffc-4c47-9902-91fb0a82e664}">
+		<property name="assetPath">
+			<value>Flèche.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>3.0933560090702947</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{518afce1-8a96-4c2b-90cb-fc86d84241a4}</destination>
+		</relationship>
+	</object>
+</objects>
