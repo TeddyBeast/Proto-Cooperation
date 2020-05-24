@@ -7,7 +7,9 @@ public class Pierre_Save : MonoBehaviour
     public Transform PointSpawnPlayer1;
     public Transform PointSpawnPlayer2;
 
-    public GameObject LightSave;
+    ParticleSystem Orbe;
+
+    //public GameObject LightSave;
 
     private Vector3 posSpawn;
 
@@ -15,7 +17,9 @@ public class Pierre_Save : MonoBehaviour
 
     private void Start()
     {
-        LightSave.SetActive(false);
+        //LightSave.SetActive(false);
+        Orbe = GetComponent<ParticleSystem>();
+        Orbe.Stop();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +29,8 @@ public class Pierre_Save : MonoBehaviour
             if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2"))
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Checkpoint", transform.position);
-                LightSave.SetActive(true);
+                //LightSave.SetActive(true);
+                Orbe.Play();
                 SaveActivated = true;
             }
 

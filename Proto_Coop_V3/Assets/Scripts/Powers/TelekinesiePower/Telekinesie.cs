@@ -25,6 +25,8 @@ public class Telekinesie : MonoBehaviour
 
     public float speedPlatform = 7f;
 
+    ParticleSystem lightParticles;
+
     float moveH;
     float moveV;
 
@@ -134,6 +136,8 @@ public class Telekinesie : MonoBehaviour
                     {
                         PlateformTouched = plateform;
                         PlateformTouched.GetComponent<Outline>().enabled = true;
+                        var light = plateform.GetComponent<ParticleSystem>().lights;
+                        light.enabled = true;
                         event_fmod.start();
                         powerActivate = true;
                     }
@@ -143,6 +147,9 @@ public class Telekinesie : MonoBehaviour
 
         if (powerActivate == true)
         {
+            // Rotate perso en fonction de la cam
+            transform.rotation = PlayerSettings.Pivot.transform.rotation;
+
             Anim.SetBool("BreakTelekynesie", false);
             Anim.Play("TelekynesieStart");
             PlayerSettings.enabled = false;
@@ -169,6 +176,8 @@ public class Telekinesie : MonoBehaviour
             foreach (GameObject plateform in ListPlateforms.PlateformMovableTelekinesie)
             {
                 plateform.GetComponent<Outline>().enabled = false;
+                var light = plateform.GetComponent<ParticleSystem>().lights;
+                light.enabled = false;
             }
 
             powerActivate = false;

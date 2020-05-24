@@ -7,12 +7,13 @@ public class PositionSave : MonoBehaviour
     public Vector3 SavePos;
 
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Agent Hostile")
+        if (other.gameObject.tag == "Agent Hostile")
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/Mort", transform.position);
             transform.position = SavePos;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
     }
 

@@ -12,9 +12,11 @@ public class PlayerInputMovement : MonoBehaviour
     [Header("Settings")]
     public Transform groundCheck;
 
+    public GameObject Pivot;
+
     public LayerMask groundMask;
 
-    Rigidbody rb;
+    public Rigidbody rb;
 
     Vector3 InitScale;
     Vector3 velocity;
@@ -35,7 +37,7 @@ public class PlayerInputMovement : MonoBehaviour
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         groundCheck = GetComponent<Transform>();
         velocity = rb.velocity;
 
@@ -130,6 +132,9 @@ public class PlayerInputMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // rotate perso en fonction du pivot cam
+        transform.rotation = Pivot.transform.rotation;
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
