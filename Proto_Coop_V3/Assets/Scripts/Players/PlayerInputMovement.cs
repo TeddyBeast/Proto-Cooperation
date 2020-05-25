@@ -149,7 +149,10 @@ public class PlayerInputMovement : MonoBehaviour
 
         if (desiredMove != Vector3.zero)
         {
-            Anim.Play("Walk");
+            if (isGrounded)
+            {
+                Anim.Play("Walk");
+            }
         }
 
         // Walking Sound
@@ -169,6 +172,7 @@ public class PlayerInputMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             rb.velocity = velocity;
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            Anim.Play("Jump");
         }
     }
 

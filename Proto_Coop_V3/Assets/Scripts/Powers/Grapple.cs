@@ -8,6 +8,8 @@ using UnityEngine.InputSystem;
 public class Grapple : MonoBehaviour
 {
     PlayerControls controls;
+    //PlayerInputMovement PIM;
+
     public Animator Anim;
 
     [Header("Settings")]
@@ -17,9 +19,12 @@ public class Grapple : MonoBehaviour
     //public Camera cameraMire;
     public bool targeted = false;
     private GameObject HookEndGO;
-    private Rigidbody rb;
-    public LineRenderer LR;
-    public SpringJoint Rope;
+    //private Rigidbody rb;
+    //public LineRenderer LR;
+    //public SpringJoint Rope;
+
+    public GameObject Rope;
+    public GameObject RopeGO;
 
     [SerializeField] CameraController CamValues;
     [SerializeField] Transform CamTransform;
@@ -34,9 +39,16 @@ public class Grapple : MonoBehaviour
     float ropeLength = 1;
     bool attached = false;
 
+    float moveHorizontal;
+    float moveVertical;
+    public float speed = 1f;
+
+    public Rigidbody ropeStartRb;
+
     private void Awake()
     {
         controls = new PlayerControls();
+        //PIM = GetComponent<PlayerInputMovement>();
 
         InputSystem.onDeviceChange += InputSystem_onDeviceChange;
 
@@ -44,11 +56,31 @@ public class Grapple : MonoBehaviour
         {
             controls.Player1.ThrowBreakGrapple.performed += ctx => ThrowGrapple = true;
             controls.Player1.ThrowBreakGrapple.canceled += ctx => ThrowGrapple = false;
+
+            //if (PIM.isGrappling)
+            //{
+            //    controls.Player1.MovementHorizontal.performed += ctx => moveHorizontal = ctx.ReadValue<float>();
+            //    controls.Player1.MovementHorizontal.canceled += ctx => moveHorizontal = 0f;
+
+            //    controls.Player1.MovementVertical.performed += ctx => moveVertical = ctx.ReadValue<float>();
+            //    controls.Player1.MovementVertical.canceled += ctx => moveVertical = 0f;
+            //}
+
         }
         else if (PlayerStat.indexPlayer == 1)
         {
             controls.Player2.ThrowBreakGrapple.performed += ctx => ThrowGrapple = true;
             controls.Player2.ThrowBreakGrapple.canceled += ctx => ThrowGrapple = false;
+
+            //if (PIM.isGrappling)
+            //{
+            //    controls.Player2.MovementHorizontal.performed += ctx => moveHorizontal = ctx.ReadValue<float>();
+            //    controls.Player2.MovementHorizontal.canceled += ctx => moveHorizontal = 0f;
+
+            //    controls.Player2.MovementVertical.performed += ctx => moveVertical = ctx.ReadValue<float>();
+            //    controls.Player2.MovementVertical.canceled += ctx => moveVertical = 0f;
+            //}
+
         }
 
         // Override devices array to have good device connected to the player
@@ -103,10 +135,12 @@ public class Grapple : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
         ThrowGrapple = false;
-        LR = GetComponent<LineRenderer>();
-        ropeLength = 1;
+        //LR = GetComponent<LineRenderer>();
+        //ropeLength = 1;
+        //PIM.isGrappling = false;
+        
     }
 
     // Update is called once per frame
@@ -118,6 +152,17 @@ public class Grapple : MonoBehaviour
             ShootHook();
             attached = true;
         }
+
+        if (targeted)
+        {
+            Vector3 desiredMove = (transform.forward * moveVertical) + (transform.right * moveHorizontal);
+            desiredMove = Vector3.ClampMagnitude(desiredMove, 1f);
+
+            Vector3 targetPos = transform.position + desiredMove * speed * Time.deltaTime;
+
+            ropeStartRb.AddForce(targetPos);
+        }
+
         if (CamValues.aimHold == true)
         {
             //CameraVise.SetActive(true);
@@ -134,6 +179,33 @@ public class Grapple : MonoBehaviour
                 {
                     //Debug.Log("target");
                     HookEndGO = Instantiate(hookEnd, hit.point, Quaternion.identity);
+                    RopeGO = Instantiate(Rope, HookEndGO.transform.position - Vector3.up * 15, Quaternion.identity);
+
+                    RopeGO.transform.GetChild(0).gameObject.transform.position = hookStart.transform.position;
+                    //RopeGO.transform.GetChild(0).gameObject.transform.parent = hookStart.transform;
+                    //transform.GetChild(0).gameObject.transform.parent = RopeGO.transform.GetChild(0).gameObject.transform;
+                    //RopeGO.transform.GetChild(0).gameObject.transform.parent = gameObject.transform;
+                    ropeStartRb = RopeGO.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+                    //PIM.isGrappling = true;
+
+                    //if (GetComponent<FixedJoint>() == null && RopeGO.transform.GetChild(0).gameObject.GetComponent<FixedJoint>() == null)
+                    //{
+                    //    FixedJoint StartObj = gameObject.AddComponent<FixedJoint>();
+                    //    StartObj.connectedBody = RopeGO.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+                    //    FixedJoint TikiObj = RopeGO.transform.GetChild(0).gameObject.AddComponent<FixedJoint>();
+                    //    TikiObj.connectedBody = GetComponent<Rigidbody>();
+
+                    //}
+
+                    GetComponent<Rigidbody>().isKinematic = true;
+
+                    if (GetComponent<HingeJoint>() == null)
+                    {
+                        HingeJoint StartObj = gameObject.AddComponent<HingeJoint>();
+                        StartObj.connectedBody = RopeGO.transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
+                        transform.parent = RopeGO.transform.GetChild(0).gameObject.transform;
+                    }
+
                     targeted = true;
                 }
                 else
@@ -163,7 +235,7 @@ public class Grapple : MonoBehaviour
         {
             ReleaseRope();
             attached = false;
-            LR.enabled = false;
+            //LR.enabled = false;
             targeted = false;
         }
 
@@ -173,12 +245,12 @@ public class Grapple : MonoBehaviour
         {
             Crosshair.enabled = enabled;
 
-            if (Physics.Raycast(ray, out RaycastHit hit, 1000))
-            {
-                //Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
+            //if (Physics.Raycast(ray, out RaycastHit hit, 1000))
+            //{
+            //    //Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
 
                
-            }
+            //}
         }
 
         if (CamValues.aimRelease == true)
@@ -188,59 +260,63 @@ public class Grapple : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
-    {
-        if (targeted)
-        {
-            DrawRope();
-        }
-    }
+    //private void LateUpdate()
+    //{
+    //    if (targeted)
+    //    {
+    //        DrawRope();
+    //    }
+    //}
 
     public void ShootHook()
     {
         //Destroy(Rope);
         //LR.enabled = true;
-        //LR.positionCount = 2;
+        //LR.positionCount = 5;
 
-        if (GetComponent<SpringJoint>() == null)
-        {
-            Rope = gameObject.AddComponent<SpringJoint>();
-            Rope.anchor = Vector3.zero;
-        }
-        float distanceRope = Vector3.Distance(hookStart.transform.position, HookEndGO.transform.position);
-        ropeLength -= 0.01f;
-        Rope.maxDistance = distanceRope * ropeLength;
-        Rope.minDistance = distanceRope * 0.01f;
-        //newRope.enableCollision = false;
-        Rope.autoConfigureConnectedAnchor = false;
-        Rope.connectedAnchor = HookEndGO.transform.position;
-        Rope.spring = 10f;
-        Rope.damper = 2f;
-        Rope.massScale = 10f;
+        //if (GetComponent<SpringJoint>() == null)
+        //{
+        //    Rope = gameObject.AddComponent<SpringJoint>();
+        //    Rope.anchor = Vector3.zero;
+        //}
+        //float distanceRope = Vector3.Distance(hookStart.transform.position, HookEndGO.transform.position);
+        //ropeLength -= 0.001f;
+        //Rope.maxDistance = distanceRope * ropeLength;
+        //Rope.minDistance = distanceRope * 0.1f;
+        ////newRope.enableCollision = false;
+        ////Rope.autoConfigureConnectedAnchor = false;
+        //Rope.connectedAnchor = HookEndGO.transform.position;
+        //Rope.spring = 100f;
+        //Rope.damper = 2f;
+        //Rope.massScale = 10f;
         //GameObject.DestroyImmediate(Rope);
         //Rope = newRope;
+        //ropeStartRb.isKinematic = false;
         Anim.SetBool("BreakRope", false);
         Anim.Play("StartSwing");
     }
 
     public void ReleaseRope()
     {
-        if (GetComponent<SpringJoint>() != null)
-        {
-            Destroy(GetComponent<SpringJoint>());
-        }
-        Rope = null;
+        //if (GetComponent<SpringJoint>() != null)
+        //{
+        //    Destroy(GetComponent<SpringJoint>());
+        //}
+        //Rope = null;
         Destroy(HookEndGO);
-        ropeLength = 1;
+        transform.parent = null;
+        Destroy(RopeGO);
+        //ropeLength = 1;
         Anim.SetBool("BreakRope", true);
+        //PIM.isGrappling = false;
     }
 
-    public void DrawRope()
-    {
-        LR.enabled = true;
-        LR.SetPosition(0, hookStart.transform.position);
-        LR.SetPosition(1, HookEndGO.transform.position);
-    }
+    //public void DrawRope()
+    //{
+    //    LR.enabled = true;
+    //    LR.SetPosition(0, hookStart.transform.position);
+    //    LR.SetPosition(1, HookEndGO.transform.position);
+    //}
 
     #region ACTIVATE CONTROLS
     private void OnEnable()
