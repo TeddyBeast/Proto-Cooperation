@@ -59,14 +59,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Crouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""40a02ad5-199a-4524-81be-1e2aec76ddaf"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Aim"",
                     ""type"": ""Button"",
                     ""id"": ""1eb582ed-fb7c-4bc4-9640-bb35c3c2f958"",
@@ -135,28 +127,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9b8babab-9e13-4f2d-a871-e6eb60f507c7"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""baadc46a-f7ef-447b-9426-887017ef8846"",
-                    ""path"": ""<Keyboard>/leftCtrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -482,7 +452,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4b19cd0e-cde7-4eae-ba16-6abe528026a2"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -548,7 +518,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""614a68e7-f6ec-4425-8011-46023b619a9b"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -598,14 +568,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""c15a006d-286d-41ab-ba10-c4a9d9dbfb9b"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Crouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""5840329a-db0f-46ee-ae9d-2f2aa7af2bef"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -679,28 +641,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""08d9c308-9d46-402c-b6f1-7c3a5c6d8c00"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""bd52ddeb-758d-4e29-8b0d-c6890af0fc12"",
-                    ""path"": ""<Keyboard>/numpad0"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Crouch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -1026,7 +966,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""7166d65f-9079-4577-b530-34f005b8272d"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -1092,7 +1032,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e97225a6-366f-4dd3-8c54-d3bfffa13105"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -1135,7 +1075,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player1_CameraHorizontal = m_Player1.FindAction("CameraHorizontal", throwIfNotFound: true);
         m_Player1_CameraVertical = m_Player1.FindAction("CameraVertical", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
-        m_Player1_Crouch = m_Player1.FindAction("Crouch", throwIfNotFound: true);
         m_Player1_Aim = m_Player1.FindAction("Aim", throwIfNotFound: true);
         m_Player1_AddPortal = m_Player1.FindAction("AddPortal", throwIfNotFound: true);
         m_Player1_SwitchPortal = m_Player1.FindAction("SwitchPortal", throwIfNotFound: true);
@@ -1149,7 +1088,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player2_CameraHorizontal = m_Player2.FindAction("CameraHorizontal", throwIfNotFound: true);
         m_Player2_CameraVertical = m_Player2.FindAction("CameraVertical", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
-        m_Player2_Crouch = m_Player2.FindAction("Crouch", throwIfNotFound: true);
         m_Player2_Aim = m_Player2.FindAction("Aim", throwIfNotFound: true);
         m_Player2_AddPortal = m_Player2.FindAction("AddPortal", throwIfNotFound: true);
         m_Player2_SwitchPortal = m_Player2.FindAction("SwitchPortal", throwIfNotFound: true);
@@ -1210,7 +1148,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_CameraHorizontal;
     private readonly InputAction m_Player1_CameraVertical;
     private readonly InputAction m_Player1_Jump;
-    private readonly InputAction m_Player1_Crouch;
     private readonly InputAction m_Player1_Aim;
     private readonly InputAction m_Player1_AddPortal;
     private readonly InputAction m_Player1_SwitchPortal;
@@ -1226,7 +1163,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @CameraHorizontal => m_Wrapper.m_Player1_CameraHorizontal;
         public InputAction @CameraVertical => m_Wrapper.m_Player1_CameraVertical;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
-        public InputAction @Crouch => m_Wrapper.m_Player1_Crouch;
         public InputAction @Aim => m_Wrapper.m_Player1_Aim;
         public InputAction @AddPortal => m_Wrapper.m_Player1_AddPortal;
         public InputAction @SwitchPortal => m_Wrapper.m_Player1_SwitchPortal;
@@ -1257,9 +1193,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
-                @Crouch.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCrouch;
-                @Crouch.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCrouch;
-                @Crouch.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCrouch;
                 @Aim.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAim;
@@ -1297,9 +1230,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Crouch.started += instance.OnCrouch;
-                @Crouch.performed += instance.OnCrouch;
-                @Crouch.canceled += instance.OnCrouch;
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
@@ -1331,7 +1261,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_CameraHorizontal;
     private readonly InputAction m_Player2_CameraVertical;
     private readonly InputAction m_Player2_Jump;
-    private readonly InputAction m_Player2_Crouch;
     private readonly InputAction m_Player2_Aim;
     private readonly InputAction m_Player2_AddPortal;
     private readonly InputAction m_Player2_SwitchPortal;
@@ -1347,7 +1276,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @CameraHorizontal => m_Wrapper.m_Player2_CameraHorizontal;
         public InputAction @CameraVertical => m_Wrapper.m_Player2_CameraVertical;
         public InputAction @Jump => m_Wrapper.m_Player2_Jump;
-        public InputAction @Crouch => m_Wrapper.m_Player2_Crouch;
         public InputAction @Aim => m_Wrapper.m_Player2_Aim;
         public InputAction @AddPortal => m_Wrapper.m_Player2_AddPortal;
         public InputAction @SwitchPortal => m_Wrapper.m_Player2_SwitchPortal;
@@ -1378,9 +1306,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
-                @Crouch.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCrouch;
-                @Crouch.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCrouch;
-                @Crouch.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCrouch;
                 @Aim.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnAim;
@@ -1418,9 +1343,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Crouch.started += instance.OnCrouch;
-                @Crouch.performed += instance.OnCrouch;
-                @Crouch.canceled += instance.OnCrouch;
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
@@ -1468,7 +1390,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnCameraHorizontal(InputAction.CallbackContext context);
         void OnCameraVertical(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnCrouch(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnAddPortal(InputAction.CallbackContext context);
         void OnSwitchPortal(InputAction.CallbackContext context);
@@ -1483,7 +1404,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnCameraHorizontal(InputAction.CallbackContext context);
         void OnCameraVertical(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnCrouch(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnAddPortal(InputAction.CallbackContext context);
         void OnSwitchPortal(InputAction.CallbackContext context);

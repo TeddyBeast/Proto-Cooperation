@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MeteoriteDestroy : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Movable Plateform"))
         {
             Destroy(gameObject);
         }

@@ -561,26 +561,6 @@ PrefabInstance:
       propertyPath: CameraTransform
       value: 
       objectReference: {fileID: 325766462124651475}
-    - target: {fileID: 5294570318660991062, guid: 3833f310d795be747a29e516b5240045,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7256801400505770420, guid: 3833f310d795be747a29e516b5240045,
-        type: 3}
-      propertyPath: CamValues
-      value: 
-      objectReference: {fileID: 5399686653144414866}
-    - target: {fileID: 7256801400505770420, guid: 3833f310d795be747a29e516b5240045,
-        type: 3}
-      propertyPath: CamTransform
-      value: 
-      objectReference: {fileID: 325766462124651501}
-    - target: {fileID: 7256801400505770420, guid: 3833f310d795be747a29e516b5240045,
-        type: 3}
-      propertyPath: Crosshair
-      value: 
-      objectReference: {fileID: 9073270362064858108}
     - target: {fileID: 7739972975870010269, guid: 3833f310d795be747a29e516b5240045,
         type: 3}
       propertyPath: Pivot

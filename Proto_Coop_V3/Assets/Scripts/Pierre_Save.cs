@@ -15,6 +15,12 @@ public class Pierre_Save : MonoBehaviour
 
     public bool SaveActivated = false;
 
+    bool Player1Inside = false;
+    bool Player2Inside = false;
+
+    PositionSave Player1;
+    PositionSave Player2;
+
     private void Start()
     {
         //LightSave.SetActive(false);
@@ -26,27 +32,39 @@ public class Pierre_Save : MonoBehaviour
     {
         if (SaveActivated == false)
         {
-            if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2"))
+            if (Player1Inside == true && Player2Inside == true)
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Checkpoint", transform.position);
                 //LightSave.SetActive(true);
                 Orbe.Play();
                 SaveActivated = true;
+
+                Player1.SavePos = PointSpawnPlayer1.position;
+                Player2.SavePos = PointSpawnPlayer2.position;
+
             }
 
             if (other.gameObject.CompareTag("Player 1"))
             {
-                posSpawn = other.gameObject.GetComponent<PositionSave>().SavePos;
-                posSpawn = PointSpawnPlayer1.position;
-                other.gameObject.GetComponent<PositionSave>().SavePos = posSpawn;
+                Player1 = other.GetComponent<PositionSave>();
+                Player1Inside = true;
             }
-
             if (other.gameObject.CompareTag("Player 2"))
             {
-                posSpawn = other.gameObject.GetComponent<PositionSave>().SavePos;
-                posSpawn = PointSpawnPlayer2.position;
-                other.gameObject.GetComponent<PositionSave>().SavePos = posSpawn;
+                Player2 = other.GetComponent<PositionSave>();
+                Player2Inside = true;
             }
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player 1"))
+        {
+            Player1Inside = false;
+        }
+        if (other.gameObject.CompareTag("Player 2"))
+        {
+            Player2Inside = false;
         }
     }
 }

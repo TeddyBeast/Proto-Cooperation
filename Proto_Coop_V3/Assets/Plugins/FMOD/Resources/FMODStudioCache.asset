@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "D:/2GD Projet 2\xE8me Semestre/Git/Proto-Cooperation/Proto_Coop_V3/Assets/Fmod_Project/FMODS2/Build/Desktop/Master.strings.bank"
   SubDir: 
-  lastModified: 637258734159090596
+  lastModified: 637260250364052741
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1188
+    Value: 1290
   Exists: 1
 --- !u!114 &-7198458226863254121
 MonoBehaviour:
@@ -33,16 +33,16 @@ MonoBehaviour:
   m_Name: event:/Mort
   m_EditorClassIdentifier: 
   Path: event:/Mort
-  guid: b55c1763ce4f82469ff4de39277d7085
+  guid: bdfe29a1eb9023469d59f493d692ca14
   Banks:
   - {fileID: 3350512202451121255}
   IsStream: 0
-  Is3D: 1
+  Is3D: 0
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 3125
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1500
 --- !u!114 &-6986396592772907462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 400
+  Length: 2139
 --- !u!114 &-3877061668406191288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 70
   Length: 7250
 --- !u!114 &11400000
 MonoBehaviour:
@@ -162,12 +162,14 @@ MonoBehaviour:
   - {fileID: -3331929932600668218}
   - {fileID: -7198458226863254121}
   - {fileID: 6998528057702771804}
+  - {fileID: 8144238574170364593}
+  - {fileID: 3772675592304388278}
   EditorParameters: []
   MasterBanks:
   - {fileID: 3350512202451121255}
   StringsBanks:
   - {fileID: -7863299275078736309}
-  stringsBankWriteTime: 637258734159090596
+  stringsBankWriteTime: 637260250364052741
   cacheVersion: 3
 --- !u!114 &77966522063049729
 MonoBehaviour:
@@ -228,13 +230,13 @@ MonoBehaviour:
   guid: 4863f8a22465294d88ba14469c7e63e9
   Banks:
   - {fileID: 3350512202451121255}
-  IsStream: 0
+  IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 5145
+  Length: 7400
 --- !u!114 &3350512202451121255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,12 +251,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "D:/2GD Projet 2\xE8me Semestre/Git/Proto-Cooperation/Proto_Coop_V3/Assets/Fmod_Project/FMODS2/Build/Desktop/Master.bank"
   SubDir: 
-  lastModified: 637258734158975124
+  lastModified: 637260250363953002
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 377920
+    Value: 444480
   Exists: 1
+--- !u!114 &3772675592304388278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Portal Fin Lvl
+  m_EditorClassIdentifier: 
+  Path: event:/Portal Fin Lvl
+  guid: b15f4b8f42bfd94d8cbd497c654045bc
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 40
+  Length: 1750
 --- !u!114 &4072149483044999047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +301,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Length: 3536
 --- !u!114 &4435963478663414096
 MonoBehaviour:
@@ -320,7 +345,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 600
+  Length: 1500
 --- !u!114 &6998528057702771804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,5 +390,28 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Length: 600
+--- !u!114 &8144238574170364593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: "event:/StartT\xE9l\xE9kin\xE9sie"
+  m_EditorClassIdentifier: 
+  Path: "event:/StartT\xE9l\xE9kin\xE9sie"
+  guid: 3a8de8ba4988e5478c3f9e420bc9f10e
+  Banks:
+  - {fileID: 3350512202451121255}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 1805

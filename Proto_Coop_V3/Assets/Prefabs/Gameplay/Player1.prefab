@@ -551,40 +551,20 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1625711113238437109, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: CamValues
-      value: 
-      objectReference: {fileID: 4763398528664095290}
-    - target: {fileID: 1625711113238437109, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: CamTransform
-      value: 
-      objectReference: {fileID: 2297639104927391431}
-    - target: {fileID: 1625711113238437109, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: Crosshair
-      value: 
-      objectReference: {fileID: 8238433210205792451}
-    - target: {fileID: 1625711113238437109, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: PlayerStat
-      value: 
-      objectReference: {fileID: 5940409244914568325}
     - target: {fileID: 1890765798262643854, guid: 27feefc2a92794145a1224dc278f668f,
         type: 3}
       propertyPath: m_Height
-      value: 5.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 1890765798262643854, guid: 27feefc2a92794145a1224dc278f668f,
         type: 3}
       propertyPath: m_Radius
-      value: 1.55
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 1890765798262643854, guid: 27feefc2a92794145a1224dc278f668f,
         type: 3}
       propertyPath: m_Center.y
-      value: 2.59
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 1901957235500371838, guid: 27feefc2a92794145a1224dc278f668f,
         type: 3}

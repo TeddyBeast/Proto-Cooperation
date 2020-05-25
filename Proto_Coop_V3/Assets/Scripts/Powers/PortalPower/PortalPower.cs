@@ -104,22 +104,23 @@ public class PortalPower : MonoBehaviour
 
     private void Update()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(PlayerSettings.Pivot.transform.position, transform.forward);
 
         if (inputPlacePortalPressed == true)
         {
             if (Physics.Raycast(ray, out RaycastHit hit, distWall))
             {
-                Debug.DrawRay(transform.position, transform.forward * distWall, Color.red);
+                Debug.DrawRay(PlayerSettings.Pivot.transform.position, transform.forward * distWall, Color.red);
+
                 if (hit.transform.CompareTag("Wall"))
                 {
                     if (ListPortals.PortalsPlaced.Count == 0)
                     {
-                        ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, transform.rotation = hit.transform.rotation));
+                        ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, hit.point + transform.forward, PortalSelected.transform.rotation));
                         Anim.Play("Portail");
                         FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
                     }
-
+                    /*
                     if (ListPortals.PortalsPlaced.Count > 0)
                     {
                         foreach (GameObject portal in ListPortals.PortalsPlaced)
@@ -141,12 +142,15 @@ public class PortalPower : MonoBehaviour
                         }
                         NbreSamePortal = 0;
                     }
+                    */
                 }
             }
 
             inputPlacePortalPressed = false;
         }
 
+
+        //Switch Portal
         if (inputSwitchPortalPressed == true)
         {
             if (PortalSelected == PortalA)

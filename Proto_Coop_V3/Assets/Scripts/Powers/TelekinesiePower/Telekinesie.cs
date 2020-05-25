@@ -19,26 +19,22 @@ public class Telekinesie : MonoBehaviour
 
     [SerializeField] private Image Crosshair;
 
-    public ListMovablePlatforms ListPlateforms;
-
-    private GameObject PlateformTouched;
-
     public float speedPlatform = 7f;
-
-    ParticleSystem lightParticles;
 
     float moveH;
     float moveV;
 
     private FMOD.Studio.EventInstance event_fmod;
 
+    GameObject plateform;
+
+    Rigidbody rb;
+
     [Header("Debug")]
     [SerializeField] private bool powerActivate = false;
 
-
     private void Start()
     {
-        ListPlateforms = FindObjectOfType(typeof(ListMovablePlatforms)) as ListMovablePlatforms;
         PlayerSettings = GetComponent<PlayerInputMovement>();
         event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Télékinésie");
     }
@@ -122,7 +118,7 @@ public class Telekinesie : MonoBehaviour
         Ray ray = new Ray(CamTransform.transform.position, CamTransform.transform.forward);
         event_fmod.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
-        if (CamValues.aimHold == true)
+        if (CamValues.aimHold == true && powerActivate == false)
         {
             Crosshair.enabled = enabled;
 
@@ -130,17 +126,12 @@ public class Telekinesie : MonoBehaviour
             {
                 Debug.DrawRay(CamTransform.transform.position, CamTransform.transform.forward * 1000f, Color.red);
 
-                foreach (GameObject plateform in ListPlateforms.PlateformMovableTelekinesie)
+                if (hit.transform.CompareTag("Movable Plateform"))
                 {
-                    if (hit.transform.gameObject == plateform)
-                    {
-                        PlateformTouched = plateform;
-                        PlateformTouched.GetComponent<Outline>().enabled = true;
-                        var light = plateform.GetComponent<ParticleSystem>().lights;
-                        light.enabled = true;
-                        event_fmod.start();
-                        powerActivate = true;
-                    }
+                    plateform = hit.transform.gameObject;
+                    event_fmod.start();
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/StartTélékinésie");
+                    powerActivate = true;
                 }
             }
         }
@@ -154,8 +145,11 @@ public class Telekinesie : MonoBehaviour
             Anim.Play("TelekynesieStart");
             PlayerSettings.enabled = false;
 
-            Rigidbody rb;
-            rb = PlateformTouched.transform.GetComponent<Rigidbody>();
+            var light = plateform.GetComponent<ParticleSystem>().lights;
+            light.enabled = true;
+
+            rb = plateform.transform.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
 
             float h = moveH;
             float v = moveV;
@@ -163,24 +157,25 @@ public class Telekinesie : MonoBehaviour
             Vector3 desiredMove = (transform.forward * v) + (transform.right * h);
             desiredMove = Vector3.ClampMagnitude(desiredMove, 1f);
 
-            Vector3 targetPos = PlateformTouched.transform.position + desiredMove * speedPlatform * Time.deltaTime;
+            Vector3 targetPos = plateform.transform.position + desiredMove * speedPlatform * Time.deltaTime;
 
             rb.MovePosition(targetPos);
         }
 
+
         if (CamValues.aimRelease == true)
         {
+            powerActivate = false;
             PlayerSettings.enabled = enabled;
             Crosshair.enabled = false;
 
-            foreach (GameObject plateform in ListPlateforms.PlateformMovableTelekinesie)
+            if (plateform != null)
             {
-                plateform.GetComponent<Outline>().enabled = false;
                 var light = plateform.GetComponent<ParticleSystem>().lights;
                 light.enabled = false;
+                rb.isKinematic = true;
             }
 
-            powerActivate = false;
             Anim.SetBool("BreakTelekynesie", true);
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }

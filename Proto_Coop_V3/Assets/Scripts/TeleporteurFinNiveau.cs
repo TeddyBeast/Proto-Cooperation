@@ -11,11 +11,13 @@ public class TeleporteurFinNiveau : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player 1"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Portal Fin Lvl", transform.position);
             other.transform.position = PointPlayer1.transform.position;
         }
 
         if (other.gameObject.CompareTag("Player 2"))
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Portal Fin Lvl", transform.position);
             other.transform.position = PointPlayer2.transform.position;
         }
     }

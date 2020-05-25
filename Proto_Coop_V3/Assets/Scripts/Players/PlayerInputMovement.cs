@@ -62,9 +62,6 @@ public class PlayerInputMovement : MonoBehaviour
             controls.Player1.MovementVertical.canceled += ctx => moveVertical = 0f;
 
             controls.Player1.Jump.performed += ctx => Jump();
-
-            controls.Player1.Crouch.performed += ctx => Crouch();
-            controls.Player1.Crouch.canceled += ctx => UnCrouch();
         }
         else if (indexPlayer == 1)
         {
@@ -75,9 +72,6 @@ public class PlayerInputMovement : MonoBehaviour
             controls.Player2.MovementVertical.canceled += ctx => moveVertical = 0f;
 
             controls.Player2.Jump.performed += ctx => Jump();
-
-            controls.Player2.Crouch.performed += ctx => Crouch();
-            controls.Player2.Crouch.canceled += ctx => UnCrouch();
         }
 
         // Override devices array to have good device connected to the player
@@ -139,7 +133,7 @@ public class PlayerInputMovement : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            //velocity.y = -2f;
+            velocity.y = -2f;
         }
 
         Vector3 desiredMove = (transform.forward * moveVertical) + (transform.right * moveHorizontal);
@@ -149,18 +143,18 @@ public class PlayerInputMovement : MonoBehaviour
 
         rb.MovePosition(targetPos);
 
-        //velocity.y += gravity * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;
 
-        //rb.velocity = velocity;
+        rb.velocity = velocity;
 
         if (desiredMove != Vector3.zero)
         {
             Anim.Play("Walk");
         }
 
+        // Walking Sound
         event_fmod.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
-        // Walking Sound
         if (isGrounded && desiredMove.x == 0f || desiredMove.z == 0f)
         {
             event_fmod.start();
@@ -172,8 +166,7 @@ public class PlayerInputMovement : MonoBehaviour
         if (isGrounded)
         {
             print("Press jump");
-            //velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
-            velocity.y = JumpHeight;
+            velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             rb.velocity = velocity;
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
@@ -189,17 +182,6 @@ public class PlayerInputMovement : MonoBehaviour
             rb.velocity = velocity;
         }
     }
-
-    private void Crouch()
-    {
-        transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y / 2, transform.localScale.z);
-    }
-
-    private void UnCrouch()
-    {
-        transform.localScale = InitScale;
-    }
-
 
     #region ACTIVATE CONTROLS
     private void OnEnable()
