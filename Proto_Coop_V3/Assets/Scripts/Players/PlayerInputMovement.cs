@@ -155,7 +155,10 @@ public class PlayerInputMovement : MonoBehaviour
 
         if (desiredMove != Vector3.zero)
         {
-            Anim.Play("Walk");
+            if (isGrounded)
+            {
+                Anim.Play("Walk");
+            }
         }
 
         event_fmod.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
@@ -176,6 +179,7 @@ public class PlayerInputMovement : MonoBehaviour
             velocity.y = JumpHeight;
             rb.velocity = velocity;
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            Anim.Play("Jump");
         }
     }
 

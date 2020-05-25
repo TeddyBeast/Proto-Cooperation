@@ -109,13 +109,19 @@ public class Projectiles : MonoBehaviour
 
         if (shootPressed == true && CameraSettings.aimHold == true)
         {
-            GameObject GO = Instantiate(Projectile, SpawnPoint.transform.position, CameraTransform.transform.rotation);
+            //GameObject GO = Instantiate(Projectile, SpawnPoint.transform.position, CameraTransform.transform.rotation);
             FMODUnity.RuntimeManager.PlayOneShot("event:/Tir", transform.position);
-            GO.GetComponent<Rigidbody>().AddForce(CameraTransform.transform.forward * powerShoot, ForceMode.Impulse);
+            //GO.GetComponent<Rigidbody>().AddForce(CameraTransform.transform.forward * powerShoot, ForceMode.Impulse);
             shootPressed = false;
             Anim.Play("Coconut");
         }
 
+    }
+
+    public void Coco()
+    {
+        GameObject GO = Instantiate(Projectile, SpawnPoint.transform.position, CameraTransform.transform.rotation);
+        GO.GetComponent<Rigidbody>().AddForce(CameraTransform.transform.forward * powerShoot, ForceMode.Impulse);
     }
 
     #region ACTIVATE CONTROLS

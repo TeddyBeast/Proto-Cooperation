@@ -7,6 +7,8 @@ public class PortalPower : MonoBehaviour
 {
     PlayerControls controls;
 
+    Vector3 portalRotate = new Vector3(90,0,0);
+
     public Animator Anim;
 
     [Header("Settings")]
@@ -115,29 +117,30 @@ public class PortalPower : MonoBehaviour
                 {
                     if (ListPortals.PortalsPlaced.Count == 0)
                     {
-                        ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, transform.rotation = hit.transform.rotation));
+                        ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, Quaternion.Euler(90, 0, 0)/*transform.rotation = hit.transform.rotation*/));
                         Anim.Play("Portail");
                         FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
                     }
 
                     if (ListPortals.PortalsPlaced.Count > 0)
                     {
+                        if (NbreSamePortal == 0)
+                        {
+                            ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, Quaternion.Euler(90,0,0)/*transform.rotation = hit.transform.rotation*/));
+                            FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
+                            Anim.Play("Portail");
+                            NbreSamePortal = 0;
+                        }
+                        
                         foreach (GameObject portal in ListPortals.PortalsPlaced)
                         {
                             if (portal.tag == PortalSelected.tag)
                             {
-                                portal.transform.position = transform.position + transform.forward;
-                                portal.transform.rotation = hit.transform.rotation;
+                                portal.transform.position = transform.position + transform.up * 3 + transform.forward * 0.5f;
+                                //portal.transform.rotation = hit.transform.rotation;
                                 FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
                                 NbreSamePortal++;
                             }
-                        }
-
-                        if (NbreSamePortal == 0)
-                        {
-                            ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, transform.rotation = hit.transform.rotation));
-                            FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
-                            NbreSamePortal = 0;
                         }
                         NbreSamePortal = 0;
                     }
