@@ -7,7 +7,9 @@ public class Pierre_Save : MonoBehaviour
     public Transform PointSpawnPlayer1;
     public Transform PointSpawnPlayer2;
 
-    ParticleSystem Orbe;
+    public Animator Anim;
+
+    //ParticleSystem Orbe;
 
     private Vector3 posSpawn;
 
@@ -22,8 +24,9 @@ public class Pierre_Save : MonoBehaviour
 
     private void Start()
     {
-        Orbe = GetComponent<ParticleSystem>();
-        Orbe.Stop();
+        //Orbe = GetComponent<ParticleSystem>();
+        //Orbe.Stop();
+        Anim = GetComponentInChildren<Animator>();
     }
 
     private void Update()
@@ -33,7 +36,9 @@ public class Pierre_Save : MonoBehaviour
             if (Player1Inside == true && Player2Inside == true && Player1.SavePressed == true && Player2.SavePressed == true)
             {
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Checkpoint", transform.position);
-                Orbe.Play();
+                transform.GetChild(0).gameObject.SetActive(true);
+                //Orbe.Play();
+                Anim.Play("Checkpray");
                 SaveActivated = true;
 
                 Player1.SavePos = PointSpawnPlayer1.position;
