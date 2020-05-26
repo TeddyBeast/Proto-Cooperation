@@ -142,7 +142,7 @@ public class Telekinesie : MonoBehaviour
             transform.rotation = PlayerSettings.Pivot.transform.rotation;
 
             Anim.SetBool("BreakTelekynesie", false);
-            Anim.Play("TelekynesieStart");
+            Anim.Play("TelekynesieLoop");
             PlayerSettings.enabled = false;
 
             var light = plateform.GetComponent<ParticleSystem>().lights;
@@ -168,6 +168,9 @@ public class Telekinesie : MonoBehaviour
             TelekinesieUI.color = new Color(TelekinesieUI.color.r, TelekinesieUI.color.g, TelekinesieUI.color.b, 1f);
             powerActivate = false;
             PlayerSettings.enabled = enabled;
+            //Crosshair.enabled = false;
+            Anim.SetBool("BreakTelekynesie", true);
+            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
             if (plateform != null)
             {
@@ -175,9 +178,6 @@ public class Telekinesie : MonoBehaviour
                 light.enabled = false;
                 rb.isKinematic = true;
             }
-
-            Anim.SetBool("BreakTelekynesie", true);
-            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         }
     }
 

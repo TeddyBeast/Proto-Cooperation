@@ -168,7 +168,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 5ac6c98dc0982104f81cba36798d9104, type: 3}
+  - {fileID: 2100000, guid: eb30b0c61d1aef34f9c070423c5ca636, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -652,7 +652,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 5ac6c98dc0982104f81cba36798d9104, type: 3}
+  - {fileID: 2100000, guid: 14303afa9606e9d42966df87a03f09c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4508,7 +4508,7 @@ MonoBehaviour:
   PlayerSettings: {fileID: 0}
   CamValues: {fileID: 0}
   CamTransform: {fileID: 0}
-  Crosshair: {fileID: 0}
+  TelekinesieUI: {fileID: 0}
   speedPlatform: 7
   powerActivate: 0
 --- !u!114 &614617449865590057
@@ -4530,6 +4530,9 @@ MonoBehaviour:
   PortalSelected: {fileID: 6051725600263306044, guid: f750cc39fcaf0724fadd75f4d357c545,
     type: 3}
   distWall: 2
+  SwitchPortal: {fileID: 0}
+  PlacePortalVUI: {fileID: 0}
+  PlacePortalOUI: {fileID: 0}
   ListPortals: {fileID: 0}
   inputPlacePortalPressed: 0
   inputSwitchPortalPressed: 0
@@ -4568,6 +4571,7 @@ MonoBehaviour:
   CameraSettings: {fileID: 0}
   CameraTransform: {fileID: 0}
   powerShoot: 40
+  ProjectileUI: {fileID: 0}
   shootPressed: 0
 --- !u!114 &322141983442796800
 MonoBehaviour:
@@ -4600,9 +4604,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9cc27d16dd48d04cb745b3544fdd40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerSettings: {fileID: 0}
   playerDead: 0
   OtherPlayer: {fileID: 0}
   SavePos: {x: 0, y: 0, z: 0}
+  SavePressed: 0
 --- !u!114 &4066228958000954700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5636,7 +5642,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 5ac6c98dc0982104f81cba36798d9104, type: 3}
+  - {fileID: 2100000, guid: 4878d6ca70926244d8e7778a9bf73ead, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5838,7 +5844,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 5ac6c98dc0982104f81cba36798d9104, type: 3}
+  - {fileID: 2100000, guid: 82dc777eefcbe554db89ded286f639e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
