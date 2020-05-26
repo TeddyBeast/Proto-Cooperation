@@ -17,7 +17,7 @@ public class Telekinesie : MonoBehaviour
     [SerializeField] CameraController CamValues;
     [SerializeField] Transform CamTransform;
 
-    [SerializeField] private Image Crosshair;
+    [SerializeField] Image TelekinesieUI;
 
     public float speedPlatform = 7f;
 
@@ -120,7 +120,7 @@ public class Telekinesie : MonoBehaviour
 
         if (CamValues.aimHold == true && powerActivate == false)
         {
-            Crosshair.enabled = enabled;
+            TelekinesieUI.color = new Color(TelekinesieUI.color.r, TelekinesieUI.color.g, TelekinesieUI.color.b, 0.65f);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
             {
@@ -165,9 +165,9 @@ public class Telekinesie : MonoBehaviour
 
         if (CamValues.aimRelease == true)
         {
+            TelekinesieUI.color = new Color(TelekinesieUI.color.r, TelekinesieUI.color.g, TelekinesieUI.color.b, 1f);
             powerActivate = false;
             PlayerSettings.enabled = enabled;
-            Crosshair.enabled = false;
 
             if (plateform != null)
             {
@@ -186,12 +186,15 @@ public class Telekinesie : MonoBehaviour
     {
         controls.Player1.Enable();
         controls.Player2.Enable();
+
+        TelekinesieUI.enabled = true;
     }
 
     private void OnDisable()
     {
         controls.Player1.Disable();
         controls.Player2.Disable();
+        TelekinesieUI.enabled = false;
     }
     #endregion ACTIVATE CONTROLS
 }
