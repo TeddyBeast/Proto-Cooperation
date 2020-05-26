@@ -168,7 +168,7 @@ public class Telekinesie : MonoBehaviour
             TelekinesieUI.color = new Color(TelekinesieUI.color.r, TelekinesieUI.color.g, TelekinesieUI.color.b, 1f);
             powerActivate = false;
             PlayerSettings.enabled = enabled;
-            Crosshair.enabled = false;
+            //Crosshair.enabled = false;
             Anim.SetBool("BreakTelekynesie", true);
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
