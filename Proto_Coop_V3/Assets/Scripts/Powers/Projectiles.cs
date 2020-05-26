@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Projectiles : MonoBehaviour
 {
@@ -18,8 +19,13 @@ public class Projectiles : MonoBehaviour
     [SerializeField] private GameObject CameraTransform;
     public float powerShoot = 3f;
 
+    [SerializeField] Image ProjectileUI;
+
     [Header("Debug")]
     [SerializeField] private bool shootPressed = false;
+
+    float durationFinDisparitionUI = 1f;
+    float timer = 0f;
 
     private void Start()
     {
@@ -111,10 +117,21 @@ public class Projectiles : MonoBehaviour
         {
             //GameObject GO = Instantiate(Projectile, SpawnPoint.transform.position, CameraTransform.transform.rotation);
             //GO.GetComponent<Rigidbody>().AddForce(CameraTransform.transform.forward * powerShoot, ForceMode.Impulse);
-            shootPressed = false;
+            ProjectileUI.color = new Color(ProjectileUI.color.r, ProjectileUI.color.g, ProjectileUI.color.b, 0.65f);
+
+            timer += Time.deltaTime;
+            if (timer >= durationFinDisparitionUI)
+            {
+                shootPressed = false;
+                timer = 0f;
+            }
             Anim.Play("Coconut");
         }
-
+        
+        if (shootPressed == false)
+        {
+            ProjectileUI.color = new Color(ProjectileUI.color.r, ProjectileUI.color.g, ProjectileUI.color.b, 1f);
+        }
     }
 
     public void Coco()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class CameraController : MonoBehaviour
@@ -24,6 +25,8 @@ public class CameraController : MonoBehaviour
 
     float moveH;
     float moveV;
+
+    public Image Crosshair;
 
     [Header("Aiming Vars")]
     public Vector3 playerOffset;
@@ -60,7 +63,7 @@ public class CameraController : MonoBehaviour
         {
             Cursor.visible = false;
         }
-
+        Crosshair.enabled = false;
         aimRelease = true;
     }
 
@@ -203,11 +206,13 @@ public class CameraController : MonoBehaviour
         }
         if (aimHold == true)
         {
+            Crosshair.enabled = true;
             ThirdPersonAiming();
             Transparency(0.2f);
         }
         if (aimRelease == true)
         {
+            Crosshair.enabled = false;
             aimHold = false;
             aimPressed = false;
 
