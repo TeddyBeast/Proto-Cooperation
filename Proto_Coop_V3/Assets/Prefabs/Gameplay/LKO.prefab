@@ -4447,10 +4447,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 2.5
+  m_Radius: 1.5
+  m_Height: 5.5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.17, z: 0.08}
+  m_Center: {x: 0, y: 2.65, z: 0.08}
 --- !u!54 &3717495225556153099
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4480,15 +4480,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 7457309829479355288}
   Pivot: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 1024
-  rb: {fileID: 0}
+  rb: {fileID: 3717495225556153099}
   indexPlayer: 0
   speed: 9
-  groundDistance: 1.1
+  groundDistance: 0.4
   JumpHeight: 5
   gravity: -29.43
   isGrounded: 0
@@ -4547,6 +4547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListPortals: {fileID: 0}
   distanceSpawnPortal: 2
+  timer: 2
 --- !u!114 &1901957235500371838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4583,7 +4584,7 @@ MonoBehaviour:
   Anim: {fileID: 0}
   PlayerSettings: {fileID: 0}
   Player: 0
-  powerProjection: 5
+  powerProjection: 15
   playerTouched: []
   projectedPressed: 0
   otherPlayerTouched: 0

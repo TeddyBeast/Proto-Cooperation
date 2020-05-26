@@ -551,21 +551,6 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1890765798262643854, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: m_Height
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890765798262643854, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890765798262643854, guid: 27feefc2a92794145a1224dc278f668f,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.17
-      objectReference: {fileID: 0}
     - target: {fileID: 1901957235500371838, guid: 27feefc2a92794145a1224dc278f668f,
         type: 3}
       propertyPath: SpawnPoint
@@ -646,6 +631,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9153132616326157586, guid: 27feefc2a92794145a1224dc278f668f,
+        type: 3}
+      propertyPath: PlayerSettings
+      value: 
+      objectReference: {fileID: 5940409244914568325}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27feefc2a92794145a1224dc278f668f, type: 3}
 --- !u!4 &8235534827083176980 stripped

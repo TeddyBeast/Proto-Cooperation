@@ -21,11 +21,11 @@ public class TeleportPortal : MonoBehaviour
         timer = Mathf.Clamp(timer, 0, 10);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         if (ListPortals.PortalsPlaced.Count > 1)
         {
-            if (collision.gameObject.tag == "PortalA" && timer <= 0)
+            if (other.gameObject.tag == "PortalA" && timer <= 0)
             {
                 foreach (GameObject portal in ListPortals.PortalsPlaced)
                 {
@@ -40,7 +40,7 @@ public class TeleportPortal : MonoBehaviour
                 }
             }
 
-            if (collision.gameObject.tag == "PortalB" && timer <= 0)
+            if (other.gameObject.tag == "PortalB" && timer <= 0)
             {
                 foreach (GameObject portal in ListPortals.PortalsPlaced)
                 {

@@ -92,6 +92,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "ValidateCheckpoint",
+                    "type": "Button",
+                    "id": "92678891-1d13-4b09-a4bc-7b99731a71ce",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -505,11 +513,44 @@
                 {
                     "name": "",
                     "id": "614a68e7-f6ec-4425-8011-46023b619a9b",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ffedd84-7397-4755-bd75-8ad8ee896270",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f569d38-92d7-4282-a0f5-8a6734236095",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ValidateCheckpoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22a9d3ad-65d7-49c9-8217-408d51db7033",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ValidateCheckpoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -603,6 +644,14 @@
                     "name": "CourteEchelle",
                     "type": "Button",
                     "id": "44269c90-e07b-4c55-90d0-506d22306b50",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "ValidateCheckpoint",
+                    "type": "Button",
+                    "id": "50526ef3-31ce-4b6e-bb4c-dafad9af783a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -1019,11 +1068,44 @@
                 {
                     "name": "",
                     "id": "e97225a6-366f-4dd3-8c54-d3bfffa13105",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc802e05-1389-45aa-a948-1a8284e548aa",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "CourteEchelle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "14510498-7806-4673-9af9-19791272154c",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "ValidateCheckpoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b5537a7-b965-4bd3-bfdf-c3989e910c3c",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "ValidateCheckpoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

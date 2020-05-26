@@ -536,6 +536,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1596169233789524316, guid: 3833f310d795be747a29e516b5240045,
+        type: 3}
+      propertyPath: powerProjection
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4073941864624221337, guid: 3833f310d795be747a29e516b5240045,
         type: 3}
       propertyPath: m_Name
@@ -561,6 +566,16 @@ PrefabInstance:
       propertyPath: CameraTransform
       value: 
       objectReference: {fileID: 325766462124651475}
+    - target: {fileID: 6874889751627635690, guid: 3833f310d795be747a29e516b5240045,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549871994073918954, guid: 3833f310d795be747a29e516b5240045,
+        type: 3}
+      propertyPath: PlayerSettings
+      value: 
+      objectReference: {fileID: 8955750139038136728}
     - target: {fileID: 7739972975870010269, guid: 3833f310d795be747a29e516b5240045,
         type: 3}
       propertyPath: Pivot

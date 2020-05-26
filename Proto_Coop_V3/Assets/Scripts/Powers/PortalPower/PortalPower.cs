@@ -118,17 +118,16 @@ public class PortalPower : MonoBehaviour
                 {
                     if (ListPortals.PortalsPlaced.Count == 0)
                     {
-                        ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, Quaternion.Euler(90, 0, 0)/*transform.rotation = hit.transform.rotation*/));
-                        Anim.Play("Portail");
                         FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
+                        ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, Quaternion.Euler(90, hit.transform.rotation.eulerAngles.y, 0) /*Quaternion.Euler(90, 0, 0)*/ ));
                     }
                     
                     if (ListPortals.PortalsPlaced.Count > 0)
                     {
                         if (NbreSamePortal == 0)
                         {
-                            ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, Quaternion.Euler(90,0,0)/*transform.rotation = hit.transform.rotation*/));
                             FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
+                            ListPortals.PortalsPlaced.Add(Instantiate(PortalSelected, transform.position + transform.forward, Quaternion.Euler(90, hit.transform.rotation.eulerAngles.y, 0) /*Quaternion.Euler(90, 0, 0)*/ ));
                             Anim.Play("Portail");
                             NbreSamePortal = 0;
                         }
@@ -137,9 +136,9 @@ public class PortalPower : MonoBehaviour
                         {
                             if (portal.tag == PortalSelected.tag)
                             {
-                                portal.transform.position = transform.position + transform.up * 3 + transform.forward * 0.5f;
-                                //portal.transform.rotation = hit.transform.rotation;
                                 FMODUnity.RuntimeManager.PlayOneShot("event:/Placer Portail", transform.position);
+                                portal.transform.position = transform.position + transform.up * 3 + transform.forward * 0.5f;
+                                portal.transform.rotation = Quaternion.Euler(90, hit.transform.rotation.eulerAngles.y, 0);
                                 NbreSamePortal++;
                             }
                         }

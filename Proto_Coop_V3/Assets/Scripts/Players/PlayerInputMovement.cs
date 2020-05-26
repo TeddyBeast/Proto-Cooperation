@@ -18,7 +18,6 @@ public class PlayerInputMovement : MonoBehaviour
 
     public Rigidbody rb;
 
-    Vector3 InitScale;
     Vector3 velocity;
 
     public int indexPlayer = 0;
@@ -40,8 +39,6 @@ public class PlayerInputMovement : MonoBehaviour
         //rb = GetComponent<Rigidbody>();
         groundCheck = GetComponent<Transform>();
         velocity = rb.velocity;
-
-        InitScale = transform.localScale;
 
         event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Marche");
     }
@@ -169,9 +166,9 @@ public class PlayerInputMovement : MonoBehaviour
         if (isGrounded)
         {
             print("Press jump");
+            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             rb.velocity = velocity;
-            event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             Anim.Play("Jump");
         }
     }

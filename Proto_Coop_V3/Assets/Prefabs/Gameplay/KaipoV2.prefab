@@ -3187,7 +3187,7 @@ Animator:
   m_GameObject: {fileID: 4073941864624221337}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b7c57e7ba0a16fa48945e10de5f9a6b2, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c485fa0e502c8fb4099abb0805da7c35, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -3210,7 +3210,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!136 &7899730822976167615
 CapsuleCollider:
@@ -3222,10 +3222,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.256
-  m_Height: 4.1
+  m_Radius: 1.3
+  m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 1.94, z: 0.14}
+  m_Center: {x: 0, y: 2.34, z: 0.14}
 --- !u!114 &7739972975870010269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3306,6 +3306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ListPortals: {fileID: 0}
   distanceSpawnPortal: 2
+  timer: 2
 --- !u!114 &4893144391269130034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3342,7 +3343,7 @@ MonoBehaviour:
   Anim: {fileID: 0}
   PlayerSettings: {fileID: 7739972975870010269}
   Player: 1
-  powerProjection: 5
+  powerProjection: 15
   playerTouched: []
   projectedPressed: 0
   otherPlayerTouched: 0

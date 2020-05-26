@@ -105,6 +105,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""ValidateCheckpoint"",
+                    ""type"": ""Button"",
+                    ""id"": ""92678891-1d13-4b09-a4bc-7b99731a71ce"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -518,11 +526,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""614a68e7-f6ec-4425-8011-46023b619a9b"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ffedd84-7397-4755-bd75-8ad8ee896270"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3f569d38-92d7-4282-a0f5-8a6734236095"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ValidateCheckpoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22a9d3ad-65d7-49c9-8217-408d51db7033"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ValidateCheckpoint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -616,6 +657,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""CourteEchelle"",
                     ""type"": ""Button"",
                     ""id"": ""44269c90-e07b-4c55-90d0-506d22306b50"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""ValidateCheckpoint"",
+                    ""type"": ""Button"",
+                    ""id"": ""50526ef3-31ce-4b6e-bb4c-dafad9af783a"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -1032,11 +1081,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e97225a6-366f-4dd3-8c54-d3bfffa13105"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc802e05-1389-45aa-a948-1a8284e548aa"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CourteEchelle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14510498-7806-4673-9af9-19791272154c"",
+                    ""path"": ""<Keyboard>/numpad0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ValidateCheckpoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0b5537a7-b965-4bd3-bfdf-c3989e910c3c"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""ValidateCheckpoint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1081,6 +1163,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player1_Shoot = m_Player1.FindAction("Shoot", throwIfNotFound: true);
         m_Player1_ThrowBreakGrapple = m_Player1.FindAction("Throw/Break Grapple", throwIfNotFound: true);
         m_Player1_CourteEchelle = m_Player1.FindAction("CourteEchelle", throwIfNotFound: true);
+        m_Player1_ValidateCheckpoint = m_Player1.FindAction("ValidateCheckpoint", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_MovementHorizontal = m_Player2.FindAction("MovementHorizontal", throwIfNotFound: true);
@@ -1094,6 +1177,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Player2_Shoot = m_Player2.FindAction("Shoot", throwIfNotFound: true);
         m_Player2_ThrowBreakGrapple = m_Player2.FindAction("Throw/Break Grapple", throwIfNotFound: true);
         m_Player2_CourteEchelle = m_Player2.FindAction("CourteEchelle", throwIfNotFound: true);
+        m_Player2_ValidateCheckpoint = m_Player2.FindAction("ValidateCheckpoint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1154,6 +1238,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Shoot;
     private readonly InputAction m_Player1_ThrowBreakGrapple;
     private readonly InputAction m_Player1_CourteEchelle;
+    private readonly InputAction m_Player1_ValidateCheckpoint;
     public struct Player1Actions
     {
         private @PlayerControls m_Wrapper;
@@ -1169,6 +1254,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player1_Shoot;
         public InputAction @ThrowBreakGrapple => m_Wrapper.m_Player1_ThrowBreakGrapple;
         public InputAction @CourteEchelle => m_Wrapper.m_Player1_CourteEchelle;
+        public InputAction @ValidateCheckpoint => m_Wrapper.m_Player1_ValidateCheckpoint;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1211,6 +1297,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @CourteEchelle.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCourteEchelle;
                 @CourteEchelle.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCourteEchelle;
                 @CourteEchelle.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnCourteEchelle;
+                @ValidateCheckpoint.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnValidateCheckpoint;
+                @ValidateCheckpoint.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnValidateCheckpoint;
+                @ValidateCheckpoint.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnValidateCheckpoint;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -1248,6 +1337,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @CourteEchelle.started += instance.OnCourteEchelle;
                 @CourteEchelle.performed += instance.OnCourteEchelle;
                 @CourteEchelle.canceled += instance.OnCourteEchelle;
+                @ValidateCheckpoint.started += instance.OnValidateCheckpoint;
+                @ValidateCheckpoint.performed += instance.OnValidateCheckpoint;
+                @ValidateCheckpoint.canceled += instance.OnValidateCheckpoint;
             }
         }
     }
@@ -1267,6 +1359,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player2_Shoot;
     private readonly InputAction m_Player2_ThrowBreakGrapple;
     private readonly InputAction m_Player2_CourteEchelle;
+    private readonly InputAction m_Player2_ValidateCheckpoint;
     public struct Player2Actions
     {
         private @PlayerControls m_Wrapper;
@@ -1282,6 +1375,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Shoot => m_Wrapper.m_Player2_Shoot;
         public InputAction @ThrowBreakGrapple => m_Wrapper.m_Player2_ThrowBreakGrapple;
         public InputAction @CourteEchelle => m_Wrapper.m_Player2_CourteEchelle;
+        public InputAction @ValidateCheckpoint => m_Wrapper.m_Player2_ValidateCheckpoint;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1324,6 +1418,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @CourteEchelle.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCourteEchelle;
                 @CourteEchelle.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCourteEchelle;
                 @CourteEchelle.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnCourteEchelle;
+                @ValidateCheckpoint.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnValidateCheckpoint;
+                @ValidateCheckpoint.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnValidateCheckpoint;
+                @ValidateCheckpoint.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnValidateCheckpoint;
             }
             m_Wrapper.m_Player2ActionsCallbackInterface = instance;
             if (instance != null)
@@ -1361,6 +1458,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @CourteEchelle.started += instance.OnCourteEchelle;
                 @CourteEchelle.performed += instance.OnCourteEchelle;
                 @CourteEchelle.canceled += instance.OnCourteEchelle;
+                @ValidateCheckpoint.started += instance.OnValidateCheckpoint;
+                @ValidateCheckpoint.performed += instance.OnValidateCheckpoint;
+                @ValidateCheckpoint.canceled += instance.OnValidateCheckpoint;
             }
         }
     }
@@ -1396,6 +1496,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnThrowBreakGrapple(InputAction.CallbackContext context);
         void OnCourteEchelle(InputAction.CallbackContext context);
+        void OnValidateCheckpoint(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
@@ -1410,5 +1511,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnThrowBreakGrapple(InputAction.CallbackContext context);
         void OnCourteEchelle(InputAction.CallbackContext context);
+        void OnValidateCheckpoint(InputAction.CallbackContext context);
     }
 }
