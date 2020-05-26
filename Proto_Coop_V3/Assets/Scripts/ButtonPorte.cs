@@ -128,7 +128,7 @@ public class ButtonPorte : MonoBehaviour
         {
             //Button position
             Vector3 pos = transform.position;
-            pos.y = pressionMaxButton;
+            pos.y += pressionMaxButton;
             transform.position = pos;
             FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
 
@@ -176,7 +176,7 @@ public class ButtonPorte : MonoBehaviour
             {
                 //Button position
                 Vector3 pos = transform.position;
-                pos.y = -pressionMaxButton;
+                pos.y -= pressionMaxButton;
                 transform.position = pos;
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
 
