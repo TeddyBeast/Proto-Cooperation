@@ -571,6 +571,11 @@ PrefabInstance:
       propertyPath: CamPlayer
       value: 
       objectReference: {fileID: 856366932}
+    - target: {fileID: 4778428184839913203, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4819052764474568131, guid: f38c0a11a0b30ab49baf94c2cb2df462,
         type: 3}
       propertyPath: m_Name
@@ -581,6 +586,11 @@ PrefabInstance:
       propertyPath: CamPlayer
       value: 
       objectReference: {fileID: 1977753535}
+    - target: {fileID: 8344031801280291589, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+        type: 3}
+      propertyPath: CamPlayer
+      value: 
+      objectReference: {fileID: 856366932}
     - target: {fileID: 8411579701768232912, guid: f38c0a11a0b30ab49baf94c2cb2df462,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2156,6 +2166,16 @@ PrefabInstance:
       propertyPath: CamPlayer
       value: 
       objectReference: {fileID: 856366932}
+    - target: {fileID: 4778428184839913203, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4778428184839913203, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4819052764474568131, guid: f38c0a11a0b30ab49baf94c2cb2df462,
         type: 3}
       propertyPath: m_Name
@@ -2166,6 +2186,16 @@ PrefabInstance:
       propertyPath: CamPlayer
       value: 
       objectReference: {fileID: 1977753535}
+    - target: {fileID: 5979572171300603709, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8344031801280291589, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+        type: 3}
+      propertyPath: CamPlayer
+      value: 
+      objectReference: {fileID: 856366932}
     - target: {fileID: 8411579701768232912, guid: f38c0a11a0b30ab49baf94c2cb2df462,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3214,6 +3244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TelekinesiePlateform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4879812828036092687, guid: aaee6a3f0d8e0fc42bbbf12243022ec0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6871183183741689271, guid: aaee6a3f0d8e0fc42bbbf12243022ec0,
         type: 3}
       propertyPath: LightsModule.ratio
@@ -3742,7 +3777,7 @@ PrefabInstance:
     - target: {fileID: 3576380215017594778, guid: 68604b111c3cde647bad38f007ef8baa,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3576380215017594779, guid: 68604b111c3cde647bad38f007ef8baa,
         type: 3}
@@ -3857,6 +3892,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TelekinesiePlateform
+      objectReference: {fileID: 0}
+    - target: {fileID: 4879812828036092687, guid: aaee6a3f0d8e0fc42bbbf12243022ec0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6871183183741689271, guid: aaee6a3f0d8e0fc42bbbf12243022ec0,
         type: 3}

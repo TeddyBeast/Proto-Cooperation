@@ -10,7 +10,6 @@ public class Pierre_Save : MonoBehaviour
     public AffichageUI UISavePlayer1;
     public AffichageUI UISavePlayer2;
 
-    public Animator Anim;
 
     //ParticleSystem Orbe;
 
@@ -31,7 +30,7 @@ public class Pierre_Save : MonoBehaviour
         UISavePlayer2.DisableImage();
         //Orbe = GetComponent<ParticleSystem>();
         //Orbe.Stop();
-        Anim = GetComponentInChildren<Animator>();
+        
     }
 
     private void Update()
@@ -43,7 +42,7 @@ public class Pierre_Save : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Checkpoint", transform.position);
                 transform.GetChild(0).gameObject.SetActive(true);
                 //Orbe.Play();
-                Anim.Play("Checkpray");
+                
                 SaveActivated = true;
 
                 Player1.SavePos = PointSpawnPlayer1.position;
