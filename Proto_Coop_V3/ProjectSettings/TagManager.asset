@@ -15,6 +15,7 @@ TagManager:
   - Player 2
   - Grap
   - Agent Hostile
+  - Coco
   layers:
   - Default
   - TransparentFX

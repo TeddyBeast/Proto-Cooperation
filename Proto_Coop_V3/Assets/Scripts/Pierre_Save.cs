@@ -7,6 +7,9 @@ public class Pierre_Save : MonoBehaviour
     public Transform PointSpawnPlayer1;
     public Transform PointSpawnPlayer2;
 
+    public AffichageUI UISavePlayer1;
+    public AffichageUI UISavePlayer2;
+
     ParticleSystem Orbe;
 
     private Vector3 posSpawn;
@@ -22,6 +25,8 @@ public class Pierre_Save : MonoBehaviour
 
     private void Start()
     {
+        UISavePlayer1.DisableImage();
+        UISavePlayer2.DisableImage();
         Orbe = GetComponent<ParticleSystem>();
         Orbe.Stop();
     }
@@ -40,6 +45,11 @@ public class Pierre_Save : MonoBehaviour
                 Player2.SavePos = PointSpawnPlayer2.position;
             }
         }
+        else if (SaveActivated == true)
+        {
+            UISavePlayer1.DisableImage();
+            UISavePlayer2.DisableImage();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,11 +58,15 @@ public class Pierre_Save : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player 1"))
             {
+                UISavePlayer1.EnableImage();
+
                 Player1 = other.GetComponent<PositionSave>();
                 Player1Inside = true;
             }
             if (other.gameObject.CompareTag("Player 2"))
             {
+                UISavePlayer2.EnableImage();
+
                 Player2 = other.GetComponent<PositionSave>();
                 Player2Inside = true;
             }
@@ -62,10 +76,14 @@ public class Pierre_Save : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player 1"))
         {
+            UISavePlayer1.DisableImage();
+
             Player1Inside = false;
         }
         if (other.gameObject.CompareTag("Player 2"))
         {
+            UISavePlayer2.DisableImage();
+
             Player2Inside = false;
         }
     }
