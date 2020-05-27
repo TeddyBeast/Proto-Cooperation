@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Feuilles
-    second: {fileID: 2100000, guid: 6708a73296125d84c80ad6e6f3293c30, type: 2}
+    second: {fileID: 2100000, guid: 8a294bd1cdc411d49966505bf24561d8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
