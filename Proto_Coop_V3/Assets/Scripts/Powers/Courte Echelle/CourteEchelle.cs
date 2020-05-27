@@ -12,6 +12,8 @@ public class CourteEchelle : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private PlayerInputMovement PlayerSettings;
 
+    [SerializeField] private AffichageUI UIPropulsion;
+
     public enum player { Player1, Player2 }
     public player Player;
 
@@ -24,6 +26,8 @@ public class CourteEchelle : MonoBehaviour
 
     private void Start()
     {
+        UIPropulsion.DisableImage();
+
         projectedPressed = false;
         otherPlayerTouched = false;
     }
@@ -123,6 +127,7 @@ public class CourteEchelle : MonoBehaviour
             if (other.gameObject.CompareTag("Player 2"))
             {
                 playerTouched.Add(other.gameObject);
+                UIPropulsion.EnableImage();
                 otherPlayerTouched = true;
             }
         }
@@ -131,6 +136,7 @@ public class CourteEchelle : MonoBehaviour
             if (other.gameObject.CompareTag("Player 1"))
             {
                 playerTouched.Add(other.gameObject);
+                UIPropulsion.EnableImage();
                 otherPlayerTouched = true;
             }
         }
@@ -143,6 +149,7 @@ public class CourteEchelle : MonoBehaviour
             if (other.gameObject.CompareTag("Player 2"))
             {
                 otherPlayerTouched = false;
+                UIPropulsion.DisableImage();
                 playerTouched.Clear();
             }
         }
@@ -151,6 +158,7 @@ public class CourteEchelle : MonoBehaviour
             if (other.gameObject.CompareTag("Player 1"))
             {
                 otherPlayerTouched = false;
+                UIPropulsion.DisableImage();
                 playerTouched.Clear();
             }
         }

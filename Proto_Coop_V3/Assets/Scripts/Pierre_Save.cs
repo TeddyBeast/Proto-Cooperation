@@ -7,7 +7,9 @@ public class Pierre_Save : MonoBehaviour
     public Transform PointSpawnPlayer1;
     public Transform PointSpawnPlayer2;
 
-    public Animator Anim;
+    public AffichageUI UISavePlayer1;
+    public AffichageUI UISavePlayer2;
+
 
     //ParticleSystem Orbe;
 
@@ -24,9 +26,11 @@ public class Pierre_Save : MonoBehaviour
 
     private void Start()
     {
+        UISavePlayer1.DisableImage();
+        UISavePlayer2.DisableImage();
         //Orbe = GetComponent<ParticleSystem>();
         //Orbe.Stop();
-        Anim = GetComponentInChildren<Animator>();
+        
     }
 
     private void Update()
@@ -38,12 +42,17 @@ public class Pierre_Save : MonoBehaviour
                 FMODUnity.RuntimeManager.PlayOneShot("event:/Checkpoint", transform.position);
                 transform.GetChild(0).gameObject.SetActive(true);
                 //Orbe.Play();
-                Anim.Play("Checkpray");
+                
                 SaveActivated = true;
 
                 Player1.SavePos = PointSpawnPlayer1.position;
                 Player2.SavePos = PointSpawnPlayer2.position;
             }
+        }
+        else if (SaveActivated == true)
+        {
+            UISavePlayer1.DisableImage();
+            UISavePlayer2.DisableImage();
         }
     }
 
@@ -53,11 +62,15 @@ public class Pierre_Save : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player 1"))
             {
+                UISavePlayer1.EnableImage();
+
                 Player1 = other.GetComponent<PositionSave>();
                 Player1Inside = true;
             }
             if (other.gameObject.CompareTag("Player 2"))
             {
+                UISavePlayer2.EnableImage();
+
                 Player2 = other.GetComponent<PositionSave>();
                 Player2Inside = true;
             }
@@ -67,10 +80,14 @@ public class Pierre_Save : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player 1"))
         {
+            UISavePlayer1.DisableImage();
+
             Player1Inside = false;
         }
         if (other.gameObject.CompareTag("Player 2"))
         {
+            UISavePlayer2.DisableImage();
+
             Player2Inside = false;
         }
     }
