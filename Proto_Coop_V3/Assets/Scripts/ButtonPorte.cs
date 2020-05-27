@@ -27,8 +27,6 @@ public class ButtonPorte : MonoBehaviour
     public float DurationOpenDoor = 3f;
     float timer = 0f;
 
-    bool ButtonAlreadyPressed = false;
-
     private void Start()
     {
         ouvertureMinPorte = Porte.transform.localPosition.y;
@@ -86,7 +84,7 @@ public class ButtonPorte : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (ouverture == true && fermeture == false)
+            if (ouverture == true && fermeture==false)
             {
                 Vector3 posPorte = Porte.transform.localPosition;
                 posPorte.y -= openSpeed;
@@ -128,52 +126,27 @@ public class ButtonPorte : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2") || other.gameObject.CompareTag("Coco"))
         {
-            if (ActiveBouton == false)
+            //Button position
+            Vector3 pos = transform.position;
+            pos.y += pressionMaxButton;
+            transform.position = pos;
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
+
+            ButtonRune.material = ButtonOn;
+
+            if (MaintienBouton == true)
             {
-                //Button position
-                Vector3 pos = transform.position;
-                pos.y += pressionMaxButton;
-                transform.position = pos;
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
-
-                ButtonRune.material = ButtonOn;
-
-                if (MaintienBouton == true)
+                // Start Open Door
+                if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
-                    // Start Open Door
-                    if (Porte.transform.localPosition.y >= ouvertureMax)
-                    {
-                        fermeture = false;
-                        ouverture = true;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
-                    }
-                }
-
-                if (ActiveTimerButton == true)
-                {
-                    // Start Open Door
-                    if (Porte.transform.localPosition.y >= ouvertureMax)
-                    {
-                        ouverture = true;
-                        FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
-                    }
+                    fermeture = false;
+                    ouverture = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
                 }
             }
 
             if (ActiveBouton == true)
             {
-                if (ButtonAlreadyPressed == false)
-                {
-                    //Button position
-                    Vector3 pos = transform.position;
-                    pos.y += pressionMaxButton;
-                    transform.position = pos;
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Bouton Porte", transform.position);
-
-                    ButtonRune.material = ButtonOn;
-                    ButtonAlreadyPressed = true;
-                }
-
                 // Start Open Door
                 if (Porte.transform.localPosition.y >= ouvertureMax)
                 {
@@ -181,6 +154,17 @@ public class ButtonPorte : MonoBehaviour
                     FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
                 }
             }
+
+            if (ActiveTimerButton == true)
+            {
+                // Start Open Door
+                if (Porte.transform.localPosition.y >= ouvertureMax)
+                {
+                    ouverture = true;
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Porte", transform.position);
+                }
+            }
+
         }
     }
 
