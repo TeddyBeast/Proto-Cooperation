@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5290715797448070629}
   - component: {fileID: 625477268117150357}
   - component: {fileID: 5178437302464343017}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5935622092131799956}
   - component: {fileID: 5653138055268516791}
   - component: {fileID: 4391652229811407574}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SaveUIPlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4372673829571631436}
   - component: {fileID: 9132518198036263015}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PointSpawnUISavePlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,6 @@ MonoBehaviour:
   PointSpawnPlayer2: {fileID: 4342843353933743804}
   UISavePlayer1: {fileID: 8344031801280291589}
   UISavePlayer2: {fileID: 9132518198036263015}
-  Anim: {fileID: 0}
   SaveActivated: 0
 --- !u!1 &3917785098208145615
 GameObject:
@@ -271,7 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4121487161057660663}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PosSpawnPlayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +302,7 @@ GameObject:
   - component: {fileID: 6638946551318160760}
   - component: {fileID: 612838264380615311}
   - component: {fileID: 4896989949968433929}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SaveUIPlayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4342843353933743804}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PosSpawnPlayer2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,7 +405,7 @@ GameObject:
   - component: {fileID: 8086942661105867221}
   - component: {fileID: 8500414246779256532}
   - component: {fileID: 4778428184839913203}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SaveStone (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2292407563139048401}
   - component: {fileID: 8344031801280291589}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PointSpawnUISavePlayer1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -593,6 +592,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pierre_Save
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f3b226d2d1d385342a6ac5d5b49d6c53,
+        type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f3b226d2d1d385342a6ac5d5b49d6c53,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3b226d2d1d385342a6ac5d5b49d6c53, type: 3}
