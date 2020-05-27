@@ -145,6 +145,9 @@ public class Telekinesie : MonoBehaviour
             Anim.Play("TelekynesieLoop");
             PlayerSettings.enabled = false;
 
+            var light = plateform.GetComponent<ParticleSystem>().lights;
+            light.enabled = true;
+
             rb = plateform.transform.GetComponent<Rigidbody>();
             rb.isKinematic = false;
 
@@ -171,6 +174,8 @@ public class Telekinesie : MonoBehaviour
 
             if (plateform != null)
             {
+                var light = plateform.GetComponent<ParticleSystem>().lights;
+                light.enabled = false;
                 rb.isKinematic = true;
             }
         }

@@ -15,16 +15,12 @@ public class PositionSave : MonoBehaviour
 
     public Vector3 SavePos;
 
-    public Animator Anim;
-
     public bool SavePressed = false;
 
     private void Start()
     {
         SavePressed = false;
         PlayerSettings = GetComponent<PlayerInputMovement>();
-
-        Anim = GetComponentInChildren<Animator>();
     }
 
 
@@ -93,15 +89,6 @@ public class PositionSave : MonoBehaviour
         controls.devices = GetAvailableDevices();
     }
     #endregion MANAGE GAMEPADS
-
-    private void Update()
-    {
-        if (SavePressed == true)
-        {
-            Anim.Play("Checkpray");
-        }
-        
-    }
 
     void Respawn()
     {

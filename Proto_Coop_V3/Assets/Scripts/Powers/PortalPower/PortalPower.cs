@@ -33,12 +33,11 @@ public class PortalPower : MonoBehaviour
     [SerializeField] private bool inputPlacePortalPressed = false;
     [SerializeField] private bool inputSwitchPortalPressed = false;
 
-
     private void Start()
     {
         SwitchPortal.enabled = true;
-        PlacePortalOUI.enabled = true;
-        PlacePortalVUI.enabled = false;
+        PlacePortalOUI.enabled = false;
+        PlacePortalVUI.enabled = true;
 
         ListPortals = FindObjectOfType(typeof(ListPortalsPlaced)) as ListPortalsPlaced;
         PortalSelected = PortalA;
@@ -169,15 +168,15 @@ public class PortalPower : MonoBehaviour
             {
                 PortalSelected = PortalB;
 
-                PlacePortalVUI.enabled = true;
-                PlacePortalOUI.enabled = false;
+                PlacePortalVUI.enabled = false;
+                PlacePortalOUI.enabled = true;
             }
             else if (PortalSelected == PortalB)
             {
                 PortalSelected = PortalA;
 
-                PlacePortalVUI.enabled = false;
-                PlacePortalOUI.enabled = true;
+                PlacePortalVUI.enabled = true;
+                PlacePortalOUI.enabled = false;
             }
 
             inputSwitchPortalPressed = false;
@@ -191,8 +190,8 @@ public class PortalPower : MonoBehaviour
         controls.Player2.Enable();
 
         SwitchPortal.enabled = true;
-        PlacePortalOUI.enabled = true;
-        PlacePortalVUI.enabled = false;
+        PlacePortalOUI.enabled = false;
+        PlacePortalVUI.enabled = true;
     }
 
     private void OnDisable()

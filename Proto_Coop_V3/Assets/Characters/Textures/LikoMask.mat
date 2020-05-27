@@ -244,7 +244,11 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
+<<<<<<< HEAD
     - _Color: {r: 1, g: 1, b: 1, a: 0.9904097}
+=======
+    - _Color: {r: 1, g: 1, b: 1, a: 0.9916428}
+>>>>>>> parent of b117b29... Merge branch 'master' of https://github.com/TeddyBeast/Proto-Cooperation
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}

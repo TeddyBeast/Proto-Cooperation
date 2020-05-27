@@ -124,7 +124,7 @@ public class ButtonPorte : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2") || other.gameObject.CompareTag("Coco"))
+        if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2"))
         {
             //Button position
             Vector3 pos = transform.position;
@@ -170,7 +170,7 @@ public class ButtonPorte : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2") || other.gameObject.CompareTag("Coco"))
+        if (other.gameObject.CompareTag("Player 1") || other.gameObject.CompareTag("Player 2"))
         {
             if (MaintienBouton == true)
             {
