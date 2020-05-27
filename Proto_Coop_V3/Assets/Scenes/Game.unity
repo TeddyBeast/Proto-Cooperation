@@ -19207,6 +19207,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295721210}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 1814734666252208335, guid: eb1b243d2afb42c478dad3a3c6143e35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19263,10 +19264,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3419466080741636828, guid: eb1b243d2afb42c478dad3a3c6143e35,
+=======
+    - target: {fileID: 4819052764474568131, guid: f38c0a11a0b30ab49baf94c2cb2df462,
+>>>>>>> parent of 438f61d... Quelques fix mineurs
         type: 3}
       propertyPath: m_Name
       value: CubeSol Variant (33)
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 3419466080741636828, guid: eb1b243d2afb42c478dad3a3c6143e35,
         type: 3}
       propertyPath: m_IsActive
@@ -19301,6 +19306,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pierre_Save
       objectReference: {fileID: 0}
+=======
+>>>>>>> parent of 438f61d... Quelques fix mineurs
     - target: {fileID: 8411579701768232912, guid: f38c0a11a0b30ab49baf94c2cb2df462,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -74993,6 +75000,7 @@ Mesh:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: pb_Mesh-2822868
 =======
   m_Name: pb_Mesh93180
@@ -75000,6 +75008,9 @@ Mesh:
 =======
   m_Name: pb_Mesh93180
 >>>>>>> parent of dd5813b... Habillage Lvl 2 + Tweaks
+=======
+  m_Name: pb_Mesh-2822868
+>>>>>>> parent of 438f61d... Quelques fix mineurs
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -84521,6 +84532,7 @@ Mesh:
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: pb_Mesh-2578878
 =======
   m_Name: pb_Mesh92644
@@ -84528,6 +84540,9 @@ Mesh:
 =======
   m_Name: pb_Mesh92644
 >>>>>>> parent of dd5813b... Habillage Lvl 2 + Tweaks
+=======
+  m_Name: pb_Mesh-2578878
+>>>>>>> parent of 438f61d... Quelques fix mineurs
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -88643,6 +88658,7 @@ Transform:
   m_GameObject: {fileID: 2133957243}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_LocalRotation: {x: 0.66577005, y: -0.08909807, z: 0.4795825, w: 0.56463486}
 =======
   m_LocalRotation: {x: 0.5809952, y: -0.33709466, z: 0.2270004, w: 0.70518273}
@@ -88650,11 +88666,15 @@ Transform:
 =======
   m_LocalRotation: {x: 0.5809952, y: -0.33709466, z: 0.2270004, w: 0.70518273}
 >>>>>>> parent of dd5813b... Habillage Lvl 2 + Tweaks
+=======
+  m_LocalRotation: {x: 0.66577005, y: -0.08909807, z: 0.4795825, w: 0.56463486}
+>>>>>>> parent of 438f61d... Quelques fix mineurs
   m_LocalPosition: {x: -83, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 56.855003, y: 79.715004, z: 129.326}
@@ -88664,6 +88684,9 @@ Transform:
 =======
   m_LocalEulerAnglesHint: {x: 103.479004, y: 114.760994, z: 162.124}
 >>>>>>> parent of dd5813b... Habillage Lvl 2 + Tweaks
+=======
+  m_LocalEulerAnglesHint: {x: 56.855003, y: 79.715004, z: 129.326}
+>>>>>>> parent of 438f61d... Quelques fix mineurs
 --- !u!114 &2133957247
 MonoBehaviour:
   m_ObjectHideFlags: 0
