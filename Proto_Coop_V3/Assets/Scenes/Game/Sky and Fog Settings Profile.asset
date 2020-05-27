@@ -208,7 +208,11 @@ MonoBehaviour:
   m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
+<<<<<<< HEAD
     m_Value: 3
+=======
+    m_Value: 1
+>>>>>>> parent of dd5813b... Habillage Lvl 2 + Tweaks
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 0
