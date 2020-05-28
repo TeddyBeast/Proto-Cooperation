@@ -166,6 +166,7 @@ public class PlayerInputMovement : MonoBehaviour
         if (isGrounded)
         {
             print("Press jump");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Jump", transform.position);
             event_fmod.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
             velocity.y = Mathf.Sqrt(JumpHeight * -2f * gravity);
             rb.velocity = velocity;

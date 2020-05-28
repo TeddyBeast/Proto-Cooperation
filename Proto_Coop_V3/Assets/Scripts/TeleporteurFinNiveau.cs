@@ -12,7 +12,7 @@ public class TeleporteurFinNiveau : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player 1"))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Portal Fin Lvl", transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Portal Fin Lvl");
             other.transform.position = PointPlayer1.transform.position;
 
             other.GetComponent<PositionSave>().SavePos = PointPlayer1.transform.position;
@@ -20,7 +20,7 @@ public class TeleporteurFinNiveau : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player 2"))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Portal Fin Lvl", transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Portal Fin Lvl");
             other.transform.position = PointPlayer2.transform.position;
 
             other.GetComponent<PositionSave>().SavePos = PointPlayer2.transform.position;

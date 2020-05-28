@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class Debugs : MonoBehaviour
 {
+    private FMOD.Studio.EventInstance event_fmod;
+
+    private void Start()
+    {
+        event_fmod = FMODUnity.RuntimeManager.CreateInstance("event:/Ambiance");
+        event_fmod.start();
+    }
+
+
     void Update()
     {
         // Restart Scene

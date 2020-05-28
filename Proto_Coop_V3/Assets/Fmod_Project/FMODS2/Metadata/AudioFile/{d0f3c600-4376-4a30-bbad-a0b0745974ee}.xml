@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{d0f3c600-4376-4a30-bbad-a0b0745974ee}">
+		<property name="assetPath">
+			<value>Saut.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.8960090702947845</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{518afce1-8a96-4c2b-90cb-fc86d84241a4}</destination>
+		</relationship>
+	</object>
+</objects>
