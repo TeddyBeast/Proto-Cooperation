@@ -1116,6 +1116,11 @@ PrefabInstance:
       propertyPath: TelekinesieUI
       value: 
       objectReference: {fileID: 7413636698264971920}
+    - target: {fileID: 2632800099140389069, guid: 27feefc2a92794145a1224dc278f668f,
+        type: 3}
+      propertyPath: speedPlatform
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3343727469940929387, guid: 27feefc2a92794145a1224dc278f668f,
         type: 3}
       propertyPath: m_Camera

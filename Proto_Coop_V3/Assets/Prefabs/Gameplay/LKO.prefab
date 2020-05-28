@@ -4603,7 +4603,7 @@ MonoBehaviour:
   CamValues: {fileID: 0}
   CamTransform: {fileID: 0}
   TelekinesieUI: {fileID: 0}
-  speedPlatform: 7
+  speedPlatform: 8
   powerActivate: 0
 --- !u!114 &614617449865590057
 MonoBehaviour:
