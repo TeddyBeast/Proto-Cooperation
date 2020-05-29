@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46572098, g: 0.21713594, b: 0.105296925, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -48210,6 +48210,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2043338499}
     m_Modifications:
+    - target: {fileID: 1474505625408373396, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: PointPlayer1
+      value: 
+      objectReference: {fileID: 1814876945}
+    - target: {fileID: 1474505625408373396, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: PointPlayer2
+      value: 
+      objectReference: {fileID: 1968210008}
     - target: {fileID: 2728058101885542406, guid: 95d8112587884e147961954a5fa44b4b,
         type: 3}
       propertyPath: PointPlayer2
@@ -48279,6 +48289,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Portail Fin Lvl
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243298848151028173, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243298848151028173, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d8112587884e147961954a5fa44b4b, type: 3}
@@ -75610,6 +75630,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1169351402}
     m_Modifications:
+    - target: {fileID: 1474505625408373396, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: PointPlayer1
+      value: 
+      objectReference: {fileID: 1195992135}
+    - target: {fileID: 1474505625408373396, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: PointPlayer2
+      value: 
+      objectReference: {fileID: 1195992133}
     - target: {fileID: 2728058101885542406, guid: 95d8112587884e147961954a5fa44b4b,
         type: 3}
       propertyPath: PointPlayer2
@@ -75679,6 +75709,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Portail Fin Lvl
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243298848151028173, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8243298848151028173, guid: 95d8112587884e147961954a5fa44b4b,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95d8112587884e147961954a5fa44b4b, type: 3}

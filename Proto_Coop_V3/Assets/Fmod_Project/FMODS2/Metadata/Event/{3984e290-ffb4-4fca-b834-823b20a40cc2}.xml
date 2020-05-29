@@ -154,7 +154,7 @@
 	<object class="MixerBusFader" id="{b08365f5-f32c-437b-89e9-2a8ebdd9e73e}" />
 	<object class="CompressorEffect" id="{85238cc8-ccdf-4603-b1dd-740647579571}">
 		<property name="gain">
-			<value>9.5</value>
+			<value>3.5</value>
 		</property>
 	</object>
 </objects>

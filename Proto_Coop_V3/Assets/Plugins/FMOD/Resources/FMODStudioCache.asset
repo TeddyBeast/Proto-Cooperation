@@ -105,7 +105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "D:/2GD Projet 2\xE8me Semestre/Git/Proto-Cooperation/Proto_Coop_V3/Assets/Fmod_Project/FMODS2/Build/Desktop/Master.strings.bank"
   SubDir: 
-  lastModified: 637263113012233549
+  lastModified: 637263140605428097
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -733,7 +733,7 @@ MonoBehaviour:
   - {fileID: 3350512202451121255}
   StringsBanks:
   - {fileID: -7863299275078736309}
-  stringsBankWriteTime: 637263113012233549
+  stringsBankWriteTime: 637263140605428097
   cacheVersion: 3
 --- !u!114 &77966522063049729
 MonoBehaviour:
@@ -950,7 +950,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: "D:/2GD Projet 2\xE8me Semestre/Git/Proto-Cooperation/Proto_Coop_V3/Assets/Fmod_Project/FMODS2/Build/Desktop/Master.bank"
   SubDir: 
-  lastModified: 637263113010617920
+  lastModified: 637263140605242422
   LoadResult: 0
   FileSizes:
   - Name: Desktop
